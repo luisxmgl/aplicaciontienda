@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "nombre": "BAUTISTA",
+    "comuna": "Por definir",
+    "productos": [
+      { "tipoPrenda": "CASACA", "talla": "4", "precio": 28000, "stock": 0 },
+      { "tipoPrenda": "CASACA", "talla": "10", "precio": 30000, "stock": 1 },
+      { "tipoPrenda": "FALDA", "talla": "6", "precio": 20000, "stock": 4 },
+      { "tipoPrenda": "FALDA", "talla": "M", "precio": 25000, "stock": 3 },
+      { "tipoPrenda": "PANTALON", "talla": "10", "precio": 16700, "stock": 21 },
+      { "tipoPrenda": "PANTALON ESPECIAL", "talla": "16", "precio": 21500, "stock": 12 },
+      { "tipoPrenda": "POLAR", "talla": "12", "precio": 19500, "stock": 6 },
+      { "tipoPrenda": "POLERA DEP. M/C", "talla": "6", "precio": 11000, "stock": 28 },
+      { "tipoPrenda": "POLERA DEP. M/C", "talla": "XL", "precio": 13600, "stock": 34 },
+      { "tipoPrenda": "POLERA PIQUE M/C", "talla": "L", "precio": 14500, "stock": 30 },
+      { "tipoPrenda": "POLERON", "talla": "6", "precio": 18500, "stock": 31 }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "ITAHUE",
+    "comuna": "Por definir",
+    "productos": [
+      { "tipoPrenda": "CALZA CORTA", "talla": "2", "precio": 7500, "stock": 0 },
+      { "tipoPrenda": "FALDA", "talla": "6", "precio": 19500, "stock": 4 },
+      { "tipoPrenda": "FALDA", "talla": "14", "precio": 21900, "stock": 6 },
+      { "tipoPrenda": "PANTALON", "talla": "10", "precio": 13900, "stock": 23 },
+      { "tipoPrenda": "PANTALON", "talla": "XL", "precio": 17900, "stock": 100 },
+      { "tipoPrenda": "POLAR", "talla": "S", "precio": 22500, "stock": 1 },
+      { "tipoPrenda": "POLERA DEP. M/C", "talla": "6", "precio": 10000, "stock": 11 },
+      { "tipoPrenda": "POLERA DEP. M/L", "talla": "4", "precio": 10100, "stock": 96 },
+      { "tipoPrenda": "POLERA PIQUE BLANCA M/C", "talla": "8", "precio": 12000, "stock": 11994 },
+      { "tipoPrenda": "POLERA PIQUE M/L", "talla": "10", "precio": 13500, "stock": 8 },
+      { "tipoPrenda": "POLERON", "talla": "12", "precio": 19000, "stock": 7 },
+      { "tipoPrenda": "SHORT", "talla": "14", "precio": 10000, "stock": 0 }
+    ]
+  }
+]
