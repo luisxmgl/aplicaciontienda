@@ -122,26 +122,22 @@ class MainSelectorActivity : AppCompatActivity() {
             try {
                 val data = repository.getCatalogData()
                 todosLosColegios.clear()
-                
-                val grouped = data.productos.groupBy { it.codfamilia }
-                
-                data.familias.forEach { familia ->
-                    val productosDeFamilia = grouped[familia.codfamilia] ?: emptyList()
-                    if (productosDeFamilia.isNotEmpty()) {
-                        todosLosColegios.add(Colegio(
-                            id = familia.codfamilia.toIntOrNull() ?: 0,
-                            nombre = familia.nomfamilia,
-                            comuna = "Concepción",
-                            direccion = "",
-                            logo = Utils.getLogoForColegio(familia.nomfamilia),
-                            productos = productosDeFamilia
-                        ))
-                    }
+
+
+                data.forEach { ui ->
+                    todosLosColegios.add(Colegio(
+                        id = ui.id.toIntOrNull() ?: 0,
+                        nombre = ui.nombre,
+                        comuna = ui.comuna,
+                        direccion = "",
+                        logo = ui.logo,
+                        productos = ui.productos
+                    ))
                 }
                 
                 aplicarFiltros()
 
-                val totalProdCount = data.productos.size
+                val totalProdCount = data.sumOf { it.productos.size }
                 if (esAdmin) {
                     findViewById<TextView>(R.id.tvCountHeader).text = "$totalProdCount productos en catálogo"
                 } else {

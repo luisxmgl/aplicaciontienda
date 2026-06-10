@@ -71,9 +71,9 @@ class TiendaActivity : AppCompatActivity() {
                 
                 // Filtrar por familia si se proporcionó una
                 val productos = if (codFamilia != null) {
-                    data.productos.filter { it.codfamilia == codFamilia }
+                    data.find { it.id == codFamilia }?.productos ?: emptyList()
                 } else {
-                    data.productos
+                    data.flatMap { it.productos }
                 }
                 
                 todosLosProductos.addAll(productos)
