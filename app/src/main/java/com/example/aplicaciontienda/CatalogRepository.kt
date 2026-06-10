@@ -7,20 +7,39 @@ import kotlinx.coroutines.withContext
 
 class CatalogRepository(private val context: Context) {
     private val gson = Gson()
-    
-    // Lista de familias a excluir según requerimiento
-    private val familiasExcluidas = setOf("5", "7", "21", "8", "17", "18")
 
-    suspend fun getCatalogData(): CatalogData = withContext(Dispatchers.IO) {
+    private val colegiosPermitidos = setOf(
+        "SAGRADOS CORAZONES", "BAUTISTA", "INMACULADA", "ITAHUE", "PINARES",
+        "PRESTON", "VILLA ACERO", "STA. LEONOR", "SAN CRISTOBAL", "HIGH SCOPE",
+        "TJS", "CONCEPCION-PEDRO DE VALDIVIA", "KINGSTON COLLEGE"
+    )
+
+    suspend fun getCatalogData(): List<ColegioUI> = withContext(Dispatchers.IO) {
         val jsonString = context.assets.open("catalogo_limpio.json").bufferedReader().use { it.readText() }
         val rawData = gson.fromJson(jsonString, CatalogData::class.java)
-        
-        // Filtrar familias y productos excluidos
-        val filteredFamilias = rawData.familias.filter { it.codfamilia !in familiasExcluidas }
-        val uniqueProducts = rawData.productos
-            .filter { it.codfamilia !in familiasExcluidas }
+
+        // Deduplicar productos por idproducto y filtrar por colegios permitidos
+        val productosLimpios = rawData.productos
             .distinctBy { it.idproducto }
-        
-        CatalogData(familias = filteredFamilias, productos = uniqueProducts)
+            .filter { it.nomfamilia.trim().uppercase() in colegiosPermitidos }
+
+        // Agrupar productos por codfamilia
+        val productosAgrupados = productosLimpios.groupBy { it.codfamilia }
+
+        // Mapear a ColegioUI filtrando los permitidos y los que tienen productos
+        return@withContext rawData.familias
+            .filter { it.nomfamilia.trim().uppercase() in colegiosPermitidos }
+            .mapNotNull { familia ->
+                val productos = productosAgrupados[familia.codfamilia] ?: emptyList()
+                if (productos.isNotEmpty()) {
+                    ColegioUI(
+                        id = familia.codfamilia,
+                        nombre = familia.nomfamilia.trim(),
+                        comuna = familia.comuna,
+                        logo = Utils.getLogoForColegio(familia.nomfamilia),
+                        productos = productos
+                    )
+                } else null
+            }
     }
 }

@@ -9,10 +9,7 @@ import kotlinx.coroutines.launch
 
 sealed class CatalogUiState {
     object Loading : CatalogUiState()
-    data class Success(
-        val familias: List<Familia>,
-        val productosPorFamilia: Map<String, List<Producto>>
-    ) : CatalogUiState()
+    data class Success(val colegios: List<ColegioUI>) : CatalogUiState()
     data class Error(val message: String) : CatalogUiState()
 }
 
@@ -21,16 +18,15 @@ class CatalogViewModel(private val repository: CatalogRepository) : ViewModel() 
     val uiState: StateFlow<CatalogUiState> = _uiState.asStateFlow()
 
     fun loadCatalog() {
+        // Solo cargar si está en estado Loading o Error para evitar recargas innecesarias
+        if (_uiState.value is CatalogUiState.Success) return
+
         viewModelScope.launch {
             try {
-                val data = repository.getCatalogData()
-                // Agrupar productos por codfamilia
-                val grouped = data.productos.groupBy { it.codfamilia }
-                
-                // Emitir un solo estado con toda la información cargada
-                _uiState.emit(CatalogUiState.Success(data.familias, grouped))
+                val listaColegios = repository.getCatalogData()
+                _uiState.emit(CatalogUiState.Success(listaColegios))
             } catch (e: Exception) {
-                _uiState.emit(CatalogUiState.Error(e.message ?: "Error desconocido"))
+                _uiState.emit(CatalogUiState.Error(e.message ?: "Error al cargar el catálogo"))
             }
         }
     }

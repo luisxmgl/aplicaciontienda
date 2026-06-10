@@ -11,7 +11,15 @@ data class CatalogData(
 data class Familia(
     val codfamilia: String,
     val nomfamilia: String
-) : Serializable
+) : Serializable {
+    val comuna: String get() = when (nomfamilia.trim().uppercase()) {
+        "SAGRADOS CORAZONES", "PRESTON", "VILLA ACERO", "HIGH SCOPE" -> "Hualpén"
+        "BAUTISTA", "INMACULADA", "CONCEPCION-PEDRO DE VALDIVIA", "KINGSTON COLLEGE" -> "Concepción"
+        "ITAHUE", "PINARES" -> "Chiguayante"
+        "STA. LEONOR", "SAN CRISTOBAL", "TJS" -> "Talcahuano"
+        else -> "Desconocida"
+    }
+}
 
 data class Producto(
     val idproducto: String,
@@ -27,34 +35,34 @@ data class Producto(
     val ivaproducto: String? = null,
     val estado: String? = null
 ) : Serializable {
-    // Propiedades de compatibilidad para corregir errores de referencia
-    val nombre: String get() = producto
-    val colegio: String get() = nomfamilia
     val precio: Int get() = precioxpublico.toDoubleOrNull()?.toInt() ?: 0
     val stock: Int get() = existencia.toDoubleOrNull()?.toInt() ?: 0
     
-    // Intenta extraer la talla del nombre del producto (ej: "POLERON T-10" -> "10")
-    val talla: String get() {
-        return when {
-            producto.contains(" T-") -> producto.substringAfterLast(" T-").trim()
-            producto.contains(" TALLA ") -> producto.substringAfterLast(" TALLA ").trim()
-            else -> "Única"
+    val nombre: String get() {
+        val index = producto.indexOf(" TALLA ", ignoreCase = true)
+        return if (index != -1) {
+            producto.substring(0, index).trim()
+        } else {
+            producto.trim()
         }
     }
 
-    // Constructor de compatibilidad para evitar errores en código antiguo
-    constructor(nombre: String, talla: String, precio: Int, colegio: String, comuna: String, stock: Int) : this(
-        idproducto = "",
-        codproducto = "",
-        producto = if (talla == "Única") nombre else "$nombre T-$talla",
-        codfamilia = "",
-        nomfamilia = colegio,
-        precioxpublico = precio.toString(),
-        precioxmayor = "0.00",
-        precioxmenor = "0.00",
-        existencia = stock.toString(),
-        codigobarra = "",
-        ivaproducto = "SI",
-        estado = "1"
-    )
+    val talla: String get() {
+        val index = producto.indexOf(" TALLA ", ignoreCase = true)
+        return if (index != -1) {
+            producto.substring(index + 7).trim()
+        } else {
+            "N/A"
+        }
+    }
+
+    val colegio: String get() = nomfamilia.trim()
 }
+
+data class ColegioUI(
+    val id: String,
+    val nombre: String,
+    val comuna: String,
+    val logo: String,
+    val productos: List<Producto>
+)
