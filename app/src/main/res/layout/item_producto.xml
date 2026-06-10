@@ -4,64 +4,60 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/tvNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre del Producto"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvColegio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Colegio"
-            android:textColor="#666666" />
-
-        <TextView
-            android:id="@+id/tvPrecio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$0"
-            android:textColor="#E91E63"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnMenos"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="-" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
-                android:id="@+id/tvCantidad"
+                android:id="@+id/tvNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:text="0"
-                android:textSize="18sp" />
+                android:text="PRODUCTO"
+                android:textColor="#222222"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnMas"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="+" />
+            <TextView
+                android:id="@+id/tvPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="desde $0"
+                android:textColor="@color/brand_azul"
+                android:textSize="18sp"
+                android:layout_marginTop="6dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTalla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Talla"
+                android:textColor="#777777"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/tvStock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stock: 0"
+                android:textColor="#FF9800"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:visibility="gone" />
+
         </LinearLayout>
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

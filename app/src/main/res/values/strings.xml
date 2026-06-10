@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">aplicaciontienda</string>
+    <string name="price_format">$%1$d</string>
 </resources>

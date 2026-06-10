@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_azul">#FF1F4E78</color>
+    <color name="ic_launcher_background">#FF1F4E78</color>
+    <color name="splash_background">#FF1F4E78</color>
+    <color name="splash_icon_background">#FF1F4E78</color>
+</resources>

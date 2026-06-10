@@ -1,0 +1,3941 @@
+{
+  "negocio": {
+    "nombre": "Confecciones Villa Acero",
+    "whatsapp": "56920680021",
+    "instagram": "@confecciones.villaacero",
+    "instagramUrl": "https://www.instagram.com/confecciones.villaacero/",
+    "zonaAtencion": "Gran Concepción"
+  },
+  "colegios": [
+    {
+      "id": 1,
+      "nombre": "Kingston College",
+      "comuna": "Concepción",
+      "direccion": "Concepción",
+      "productos": [
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "14",
+          "precio": 11000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2",
+          "precio": 12100,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "16",
+          "precio": 13300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 14400,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "14",
+          "precio": 13900,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 14800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 15700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "10",
+          "precio": 16600,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 17600,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "M",
+          "precio": 18500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "XL",
+          "precio": 19400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 18500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "6",
+          "precio": 19200,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "14",
+          "precio": 19900,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "10",
+          "precio": 20600,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "12",
+          "precio": 21300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2",
+          "precio": 22100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "16",
+          "precio": 22800,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "S",
+          "precio": 23500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "L",
+          "precio": 24200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "XL",
+          "precio": 24900,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "14",
+          "precio": 12500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "6",
+          "precio": 13500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "8",
+          "precio": 14500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "16",
+          "precio": 15500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "8",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 20300,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 21200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "12",
+          "precio": 22100,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 23000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2XL",
+          "precio": 23800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "M",
+          "precio": 24700,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "L",
+          "precio": 25600,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "XL",
+          "precio": 26500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 22000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "12",
+          "precio": 23200,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 24400,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 25600,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "10",
+          "precio": 26800,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 28000,
+          "stock": 8
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Pinares",
+      "comuna": "Chiguayante",
+      "direccion": "Chiguayante",
+      "productos": [
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "14",
+          "precio": 28000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 29400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2",
+          "precio": 30800,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "8",
+          "precio": 32200,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "16",
+          "precio": 33700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2XL",
+          "precio": 35100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "L",
+          "precio": 36500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "XL",
+          "precio": 37900,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "16",
+          "precio": 18500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2",
+          "precio": 19500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "12",
+          "precio": 20600,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "6",
+          "precio": 21700,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 22800,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "L",
+          "precio": 23900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "M",
+          "precio": 24900,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "16",
+          "precio": 12000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2",
+          "precio": 12600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 13200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "6",
+          "precio": 13800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "10",
+          "precio": 14400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "12",
+          "precio": 15000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 13900,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 15300,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 16700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "10",
+          "precio": 18100,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 19500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "14",
+          "precio": 7500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "12",
+          "precio": 7700,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "16",
+          "precio": 8000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 8300,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "8",
+          "precio": 8600,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "10",
+          "precio": 8900,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "M",
+          "precio": 9200,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "S",
+          "precio": 9400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2",
+          "precio": 11000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "4",
+          "precio": 11700,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "16",
+          "precio": 12400,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 13100,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2XL",
+          "precio": 13800,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "M",
+          "precio": 14500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "8",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "14",
+          "precio": 20200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 21000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "12",
+          "precio": 21800,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 22600,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2",
+          "precio": 23300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 24100,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "XL",
+          "precio": 24900,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2XL",
+          "precio": 25700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "M",
+          "precio": 26400,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "6",
+          "precio": 22000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 22600,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "4",
+          "precio": 23200,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 23800,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 24400,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 25000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "10",
+          "precio": 25600,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "S",
+          "precio": 26200,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2XL",
+          "precio": 26800,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "L",
+          "precio": 27400,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "XL",
+          "precio": 28000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "6",
+          "precio": 20200,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "8",
+          "precio": 20900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "16",
+          "precio": 21600,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2XL",
+          "precio": 22300,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "XL",
+          "precio": 23000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "S",
+          "precio": 23700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "L",
+          "precio": 24400,
+          "stock": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "San Cristóbal",
+      "comuna": "Talcahuano",
+      "direccion": "Talcahuano",
+      "productos": [
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "4",
+          "precio": 22000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "10",
+          "precio": 23500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 25000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 26500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 28000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 20300,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 21100,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "16",
+          "precio": 21900,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "M",
+          "precio": 22800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "L",
+          "precio": 23600,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "S",
+          "precio": 24400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "16",
+          "precio": 12000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "10",
+          "precio": 13000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 14000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2",
+          "precio": 15000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "4",
+          "precio": 11000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "16",
+          "precio": 11300,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "6",
+          "precio": 11700,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 12100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "14",
+          "precio": 12500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "8",
+          "precio": 12900,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "L",
+          "precio": 13300,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "S",
+          "precio": 13700,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2XL",
+          "precio": 14100,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "M",
+          "precio": 14400,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 13900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 15300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "16",
+          "precio": 16700,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 18100,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "12",
+          "precio": 19500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "14",
+          "precio": 21800,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 24100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 26400,
+          "stock": 20
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Santa Leonor",
+      "comuna": "Talcahuano",
+      "direccion": "Talcahuano",
+      "productos": [
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "14",
+          "precio": 12500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "4",
+          "precio": 13000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2",
+          "precio": 13500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "6",
+          "precio": 14000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "10",
+          "precio": 14500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "L",
+          "precio": 15000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "M",
+          "precio": 15500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "6",
+          "precio": 22000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 23500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "4",
+          "precio": 25000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 26500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 28000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 12000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "16",
+          "precio": 13000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2",
+          "precio": 14000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "8",
+          "precio": 15000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "2",
+          "precio": 13900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 15300,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 16700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 18100,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 19500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2",
+          "precio": 11000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "16",
+          "precio": 11700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "6",
+          "precio": 12400,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "4",
+          "precio": 13100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 13800,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "14",
+          "precio": 14500,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 21100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "4",
+          "precio": 22800,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "6",
+          "precio": 24400,
+          "stock": 20
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Villa Acero",
+      "comuna": "Hualpén",
+      "direccion": "Hualpén",
+      "productos": [
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 28000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "16",
+          "precio": 31300,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "6",
+          "precio": 34600,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "8",
+          "precio": 37900,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "12",
+          "precio": 20600,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 21800,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 22900,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 24100,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "10",
+          "precio": 25300,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2",
+          "precio": 26400,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "8",
+          "precio": 12500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "10",
+          "precio": 13000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "16",
+          "precio": 13500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "4",
+          "precio": 14000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2",
+          "precio": 14500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "14",
+          "precio": 15000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "6",
+          "precio": 15500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 22000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "10",
+          "precio": 22700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 23500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 24200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 25000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "M",
+          "precio": 25700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "XL",
+          "precio": 26500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2XL",
+          "precio": 27200,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "L",
+          "precio": 28000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "8",
+          "precio": 12000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 13000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2",
+          "precio": 14000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "16",
+          "precio": 15000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "16",
+          "precio": 13900,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "10",
+          "precio": 14700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 15500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "14",
+          "precio": 16300,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 17100,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 17900,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "XL",
+          "precio": 18700,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "2XL",
+          "precio": 19500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "10",
+          "precio": 7500,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "4",
+          "precio": 8100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 8800,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "12",
+          "precio": 9400,
+          "stock": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nombre": "Preston",
+      "comuna": "Hualpén",
+      "direccion": "Hualpén",
+      "productos": [
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2",
+          "precio": 20200,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 20900,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "8",
+          "precio": 21600,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "10",
+          "precio": 22300,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 23000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 23700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "XL",
+          "precio": 24400,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2XL",
+          "precio": 25100,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "S",
+          "precio": 25800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "M",
+          "precio": 26500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2",
+          "precio": 12000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "8",
+          "precio": 12300,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "6",
+          "precio": 12600,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 12900,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "4",
+          "precio": 13200,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "10",
+          "precio": 13500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "16",
+          "precio": 13800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "S",
+          "precio": 14100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "XL",
+          "precio": 14400,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "L",
+          "precio": 14700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2XL",
+          "precio": 15000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "12",
+          "precio": 18500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "14",
+          "precio": 19300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "8",
+          "precio": 20100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "6",
+          "precio": 20900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "16",
+          "precio": 21700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 22500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "S",
+          "precio": 23300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2XL",
+          "precio": 24100,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "M",
+          "precio": 24900,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "6",
+          "precio": 11000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "8",
+          "precio": 11500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 12000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2",
+          "precio": 12500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "4",
+          "precio": 13000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "L",
+          "precio": 13500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "M",
+          "precio": 14000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2XL",
+          "precio": 14500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 20000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "4",
+          "precio": 20500,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2",
+          "precio": 21000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "16",
+          "precio": 21500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 22000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "8",
+          "precio": 22500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "S",
+          "precio": 23000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2XL",
+          "precio": 23500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "M",
+          "precio": 24000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "L",
+          "precio": 24500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "14",
+          "precio": 28000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "4",
+          "precio": 29200,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "12",
+          "precio": 30500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 31700,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "6",
+          "precio": 33000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "XL",
+          "precio": 34200,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2XL",
+          "precio": 35500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "M",
+          "precio": 36700,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "L",
+          "precio": 38000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "12",
+          "precio": 7500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2",
+          "precio": 7800,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "8",
+          "precio": 8100,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 8400,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "4",
+          "precio": 8800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "16",
+          "precio": 9100,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "14",
+          "precio": 9400,
+          "stock": 0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nombre": "Itahue",
+      "comuna": "Chiguayante",
+      "direccion": "Chiguayante",
+      "productos": [
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "16",
+          "precio": 12500,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "14",
+          "precio": 12800,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2",
+          "precio": 13100,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "12",
+          "precio": 13400,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "6",
+          "precio": 13800,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "10",
+          "precio": 14100,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "4",
+          "precio": 14400,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2XL",
+          "precio": 14800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "L",
+          "precio": 15100,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "M",
+          "precio": 15400,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "8",
+          "precio": 18500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2",
+          "precio": 19200,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "12",
+          "precio": 19900,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 20600,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "6",
+          "precio": 21300,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "14",
+          "precio": 22100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "M",
+          "precio": 22800,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2XL",
+          "precio": 23500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "S",
+          "precio": 24200,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "XL",
+          "precio": 24900,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "10",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2",
+          "precio": 21200,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "12",
+          "precio": 23000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 24700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 26500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2",
+          "precio": 7500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "10",
+          "precio": 7800,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 8100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "8",
+          "precio": 8400,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "M",
+          "precio": 8800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "S",
+          "precio": 9100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2XL",
+          "precio": 9400,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 13900,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 15700,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "10",
+          "precio": 17600,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "16",
+          "precio": 19400,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 22000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 23500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 25000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "6",
+          "precio": 26500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "12",
+          "precio": 28000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 20700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2",
+          "precio": 22000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "4",
+          "precio": 23200,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "16",
+          "precio": 24500,
+          "stock": 12
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "nombre": "Inmaculada",
+      "comuna": "Concepción",
+      "direccion": "Concepción",
+      "productos": [
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 13900,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "16",
+          "precio": 15000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "2",
+          "precio": 16100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "10",
+          "precio": 17200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 18300,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 19500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "16",
+          "precio": 11000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2",
+          "precio": 11400,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "8",
+          "precio": 11800,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "6",
+          "precio": 12300,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 12700,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "4",
+          "precio": 13100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "XL",
+          "precio": 13600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "S",
+          "precio": 14000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "L",
+          "precio": 14400,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "10",
+          "precio": 18500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "16",
+          "precio": 19400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2",
+          "precio": 20300,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 21200,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "XL",
+          "precio": 22200,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "L",
+          "precio": 23100,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "S",
+          "precio": 24000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "M",
+          "precio": 24900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "12",
+          "precio": 12000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "8",
+          "precio": 12400,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "16",
+          "precio": 12800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 13200,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "6",
+          "precio": 13700,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2XL",
+          "precio": 14100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "S",
+          "precio": 14500,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "M",
+          "precio": 14900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "14",
+          "precio": 28000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2",
+          "precio": 29200,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "4",
+          "precio": 30500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 31700,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "6",
+          "precio": 33000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "8",
+          "precio": 34200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "12",
+          "precio": 35500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "M",
+          "precio": 36700,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "L",
+          "precio": 38000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "10",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 21200,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2",
+          "precio": 23000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "14",
+          "precio": 24700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "8",
+          "precio": 26500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 19500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "8",
+          "precio": 20100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 20700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 21300,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "4",
+          "precio": 22000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "16",
+          "precio": 22600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "M",
+          "precio": 23200,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2XL",
+          "precio": 23800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "S",
+          "precio": 24500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 7500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "8",
+          "precio": 7700,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "10",
+          "precio": 7900,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "14",
+          "precio": 8100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "16",
+          "precio": 8300,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "4",
+          "precio": 8600,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "12",
+          "precio": 8800,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "M",
+          "precio": 9000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2XL",
+          "precio": 9200,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "L",
+          "precio": 9400,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "6",
+          "precio": 22000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "10",
+          "precio": 23000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 24000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 25000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "S",
+          "precio": 26000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "XL",
+          "precio": 27000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2XL",
+          "precio": 28000,
+          "stock": 5
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "nombre": "High Scope",
+      "comuna": "Hualpén",
+      "direccion": "Hualpén",
+      "productos": [
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "10",
+          "precio": 12500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "4",
+          "precio": 12800,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "12",
+          "precio": 13200,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2",
+          "precio": 13600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "8",
+          "precio": 14000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "S",
+          "precio": 14300,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "XL",
+          "precio": 14700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2XL",
+          "precio": 15100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "M",
+          "precio": 15500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "14",
+          "precio": 28000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 30500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "12",
+          "precio": 33000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "4",
+          "precio": 35500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "16",
+          "precio": 38000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "8",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 21200,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "12",
+          "precio": 23000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 24700,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "14",
+          "precio": 26500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "16",
+          "precio": 12000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "6",
+          "precio": 12500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "10",
+          "precio": 13000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 13500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "L",
+          "precio": 14000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "XL",
+          "precio": 14500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "M",
+          "precio": 15000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "10",
+          "precio": 7500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "12",
+          "precio": 7900,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 8300,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2",
+          "precio": 8700,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "8",
+          "precio": 9100,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "4",
+          "precio": 9500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "8",
+          "precio": 18500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "12",
+          "precio": 19200,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 19900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "10",
+          "precio": 20600,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "6",
+          "precio": 21300,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "16",
+          "precio": 22100,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "M",
+          "precio": 22800,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "S",
+          "precio": 23500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "L",
+          "precio": 24200,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "XL",
+          "precio": 24900,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "8",
+          "precio": 11000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "4",
+          "precio": 11500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "10",
+          "precio": 12000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "6",
+          "precio": 12500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 13000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "XL",
+          "precio": 13500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "L",
+          "precio": 14000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "2XL",
+          "precio": 14500,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "4",
+          "precio": 19500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 20500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "8",
+          "precio": 21500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2",
+          "precio": 22500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "6",
+          "precio": 23500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 24500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "16",
+          "precio": 13900,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "2",
+          "precio": 14800,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "10",
+          "precio": 15700,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 16600,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 17600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "S",
+          "precio": 18500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "XL",
+          "precio": 19400,
+          "stock": 3
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "nombre": "Thomas Jefferson School",
+      "comuna": "Talcahuano",
+      "direccion": "Talcahuano",
+      "productos": [
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "14",
+          "precio": 12500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "12",
+          "precio": 12900,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2",
+          "precio": 13300,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "8",
+          "precio": 13700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "10",
+          "precio": 14200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "S",
+          "precio": 14600,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "L",
+          "precio": 15000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2XL",
+          "precio": 15400,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 22000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "6",
+          "precio": 23000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "4",
+          "precio": 24000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 25000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "S",
+          "precio": 26000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "M",
+          "precio": 27000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "L",
+          "precio": 28000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 18500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "10",
+          "precio": 20600,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "16",
+          "precio": 21700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "12",
+          "precio": 22800,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "L",
+          "precio": 23900,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "M",
+          "precio": 24900,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 13900,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 15300,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "2",
+          "precio": 16700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "16",
+          "precio": 18100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2",
+          "precio": 7500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "4",
+          "precio": 7900,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "12",
+          "precio": 8300,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "8",
+          "precio": 8700,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "16",
+          "precio": 9100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 9500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2",
+          "precio": 19500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 20300,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 21100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 21900,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "6",
+          "precio": 22800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "S",
+          "precio": 23600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "XL",
+          "precio": 24400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2",
+          "precio": 20200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 21000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "16",
+          "precio": 21800,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "10",
+          "precio": 22600,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "12",
+          "precio": 23300,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "L",
+          "precio": 24100,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "XL",
+          "precio": 24900,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2XL",
+          "precio": 25700,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "M",
+          "precio": 26400,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "14",
+          "precio": 28000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "12",
+          "precio": 29600,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2",
+          "precio": 31300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "6",
+          "precio": 32900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "8",
+          "precio": 34600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "4",
+          "precio": 36300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 37900,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "12",
+          "precio": 12000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 13000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "4",
+          "precio": 14000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "10",
+          "precio": 15000,
+          "stock": 0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "nombre": "Bautista",
+      "comuna": "Concepción",
+      "direccion": "Concepción",
+      "productos": [
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "16",
+          "precio": 28000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "4",
+          "precio": 30500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2",
+          "precio": 33000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "6",
+          "precio": 35500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 38000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "10",
+          "precio": 19500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2",
+          "precio": 20600,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "4",
+          "precio": 21800,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "6",
+          "precio": 22900,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "L",
+          "precio": 24100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "2XL",
+          "precio": 25300,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLAR",
+          "talla": "S",
+          "precio": 26400,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "8",
+          "precio": 11000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "16",
+          "precio": 12100,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "14",
+          "precio": 13300,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/C",
+          "talla": "12",
+          "precio": 14400,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2",
+          "precio": 12000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "4",
+          "precio": 13000,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 14000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "10",
+          "precio": 15000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "16",
+          "precio": 13900,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 14800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 15700,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "4",
+          "precio": 16600,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "2",
+          "precio": 17600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "10",
+          "precio": 18500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 19400,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2",
+          "precio": 7500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "4",
+          "precio": 7800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "6",
+          "precio": 8100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "14",
+          "precio": 8400,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "L",
+          "precio": 8800,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "2XL",
+          "precio": 9100,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "CALZA CORTA",
+          "talla": "S",
+          "precio": 9400,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "12",
+          "precio": 22000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 23500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 25000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 26500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 28000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "6",
+          "precio": 20000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2",
+          "precio": 20500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "8",
+          "precio": 21000,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 21500,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "4",
+          "precio": 22000,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 22500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "XL",
+          "precio": 23000,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "L",
+          "precio": 23500,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "S",
+          "precio": 24000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "M",
+          "precio": 24500,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "6",
+          "precio": 18500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2",
+          "precio": 19800,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "10",
+          "precio": 21100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "14",
+          "precio": 22400,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 23700,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "8",
+          "precio": 25000,
+          "stock": 2
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "nombre": "Sagrados Corazones",
+      "comuna": "Hualpén",
+      "direccion": "Hualpén",
+      "productos": [
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "12",
+          "precio": 22000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "14",
+          "precio": 22600,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "16",
+          "precio": 23200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "6",
+          "precio": 23800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "4",
+          "precio": 24400,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "8",
+          "precio": 25000,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2",
+          "precio": 25600,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "L",
+          "precio": 26200,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "2XL",
+          "precio": 26800,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "XL",
+          "precio": 27400,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "BUZO",
+          "talla": "S",
+          "precio": 28000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "14",
+          "precio": 12000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "8",
+          "precio": 12400,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "10",
+          "precio": 12800,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "12",
+          "precio": 13200,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "S",
+          "precio": 13700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "XL",
+          "precio": 14100,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "L",
+          "precio": 14500,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "POLERA PIQUE M/C",
+          "talla": "2XL",
+          "precio": 14900,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "4",
+          "precio": 12500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "10",
+          "precio": 12800,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "12",
+          "precio": 13200,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "16",
+          "precio": 13600,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2",
+          "precio": 14000,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "8",
+          "precio": 14300,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "2XL",
+          "precio": 14700,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "M",
+          "precio": 15100,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "POLERA M/L",
+          "talla": "XL",
+          "precio": 15500,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "4",
+          "precio": 19500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "10",
+          "precio": 20000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "12",
+          "precio": 20600,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "8",
+          "precio": 21100,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "6",
+          "precio": 21700,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "16",
+          "precio": 22200,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "2XL",
+          "precio": 22800,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "M",
+          "precio": 23300,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "XL",
+          "precio": 23900,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "FALDA",
+          "talla": "S",
+          "precio": 24400,
+          "stock": 20
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "12",
+          "precio": 28000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "14",
+          "precio": 29200,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "4",
+          "precio": 30500,
+          "stock": 5
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "10",
+          "precio": 31700,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2",
+          "precio": 33000,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "6",
+          "precio": 34200,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "16",
+          "precio": 35500,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "L",
+          "precio": 36700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "CASACA",
+          "talla": "2XL",
+          "precio": 38000,
+          "stock": 0
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "4",
+          "precio": 18500,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "10",
+          "precio": 19800,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "14",
+          "precio": 21100,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "12",
+          "precio": 22400,
+          "stock": 8
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "2",
+          "precio": 23700,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "POLERON",
+          "talla": "6",
+          "precio": 25000,
+          "stock": 1
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "6",
+          "precio": 13900,
+          "stock": 2
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "12",
+          "precio": 15300,
+          "stock": 12
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "8",
+          "precio": 16700,
+          "stock": 35
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "2",
+          "precio": 18100,
+          "stock": 3
+        },
+        {
+          "tipoPrenda": "PANTALON",
+          "talla": "14",
+          "precio": 19500,
+          "stock": 12
+        }
+      ]
+    }
+  ]
+}

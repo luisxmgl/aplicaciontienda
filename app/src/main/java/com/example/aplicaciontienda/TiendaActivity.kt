@@ -1,123 +1,131 @@
 package com.example.aplicaciontienda
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import android.view.View
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import org.json.JSONArray
-import java.net.URLEncoder
-import java.nio.charset.StandardCharsets
+import com.google.android.material.chip.ChipGroup
+import kotlinx.coroutines.launch
 
 class TiendaActivity : AppCompatActivity() {
 
     private lateinit var adapter: ProductoAdapter
-    private val productos = mutableListOf<Producto>()
+    private val todosLosProductos = mutableListOf<Producto>()
+    private val productosFiltrados = mutableListOf<Producto>()
     private var esAdmin: Boolean = false
+    private lateinit var repository: CatalogRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tienda)
 
+        repository = CatalogRepository(this)
         esAdmin = intent.getBooleanExtra("ES_ADMIN", false)
-        supportActionBar?.title = if (esAdmin) "Tienda (Admin)" else "Tienda (Invitado)"
+        val codFamilia = intent.getStringExtra("COD_FAMILIA") // Usamos codfamilia ahora
+        val colegioNombre = intent.getStringExtra("COLEGIO_NOMBRE") ?: "Tienda"
 
-        cargarProductosDesdeAssets()
-
+        findViewById<TextView>(R.id.tvColegioNombre).text = colegioNombre
+        
         val rvProductos = findViewById<RecyclerView>(R.id.rvProductos)
-        rvProductos.layoutManager = LinearLayoutManager(this)
-        adapter = ProductoAdapter(productos) {
-            // Actualización de UI si es necesario
-        }
+        rvProductos.layoutManager = GridLayoutManager(this, 2) 
+        
+        adapter = ProductoAdapter(productosFiltrados)
         rvProductos.adapter = adapter
 
-        findViewById<Button>(R.id.btnWhatsApp).setOnClickListener {
-            enviarPedidoWhatsApp()
+        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
+            finish()
         }
 
-        findViewById<Button>(R.id.btnSobreNosotros).setOnClickListener {
-            mostrarSobreNosotros()
+        findViewById<ImageButton>(R.id.btnCart).setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
         }
 
-        findViewById<Button>(R.id.btnInstagram).setOnClickListener {
-            abrirInstagram()
-        }
-    }
-
-    private fun cargarProductosDesdeAssets() {
-        try {
-            val jsonString = assets.open("catalogo.json").bufferedReader().use { it.readText() }
-            val colegiosArray = JSONArray(jsonString)
-
-            for (i in 0 until colegiosArray.length()) {
-                val colegioObj = colegiosArray.getJSONObject(i)
-                val nombreColegio = colegioObj.getString("nombre")
-                val productosArray = colegioObj.getJSONArray("productos")
-
-                for (j in 0 until productosArray.length()) {
-                    val prodObj = productosArray.getJSONObject(j)
-                    productos.add(Producto(
-                        nombre = prodObj.getString("tipoPrenda"),
-                        talla = prodObj.getString("talla"),
-                        precio = prodObj.getInt("precio"),
-                        colegio = nombreColegio
-                    ))
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(this, "Error al cargar el catálogo", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun enviarPedidoWhatsApp() {
-        val seleccionados = productos.filter { it.cantidad > 0 }
-        if (seleccionados.isEmpty()) {
-            Toast.makeText(this, "El carrito está vacío", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        var mensaje = "Hola, he seleccionado los siguientes productos:\n\n"
-        var total = 0
-        seleccionados.forEach {
-            mensaje += "- ${it.cantidad}x ${it.nombre} Talla ${it.talla} (${it.colegio}): $${it.precio * it.cantidad}\n"
-            total += it.precio * it.cantidad
-        }
-        mensaje += "\nTotal: $$total"
-
-        try {
-            val intent = Intent(Intent.ACTION_VIEW)
-            val url = "https://api.whatsapp.com/send?phone=56920680021&text=" + URLEncoder.encode(mensaje, "UTF-8")
-            intent.data = Uri.parse(url)
-            startActivity(intent)
-        } catch (e: Exception) {
-            Toast.makeText(this, "WhatsApp no está instalado", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun mostrarSobreNosotros() {
-        AlertDialog.Builder(this)
-            .setTitle("Sobre Nosotros")
-            .setMessage("Tienda de Uniformes - Confecciones Villa Acero\n\n¡Calidad en cada prenda!")
-            .setPositiveButton("Ver Ubicación") { _, _ ->
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.app.goo.gl/N9L73KwWQ2Xotv9P8"))
+        findViewById<ImageButton>(R.id.btnChat).setOnClickListener {
+            if (esAdmin) {
+                startActivity(Intent(this, AdminChatListActivity::class.java))
+            } else {
+                val intent = Intent(this, ChatActivity::class.java)
+                intent.putExtra("COLEGIO_NOMBRE", colegioNombre)
+                intent.putExtra("ES_ADMIN", esAdmin)
                 startActivity(intent)
             }
-            .setNegativeButton("Cerrar", null)
-            .show()
+        }
+
+        findViewById<ImageButton>(R.id.btnInfo).setOnClickListener {
+            startActivity(Intent(this, SobreNosotrosActivity::class.java))
+        }
+
+        cargarProductos(codFamilia)
     }
 
-    private fun abrirInstagram() {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/confecciones.villaacero/?hl=es"))
-        try {
-            intent.setPackage("com.instagram.android")
-            startActivity(intent)
-        } catch (e: Exception) {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/confecciones.villaacero/?hl=es")))
+    private fun cargarProductos(codFamilia: String?) {
+        lifecycleScope.launch {
+            try {
+                val data = repository.getCatalogData()
+                todosLosProductos.clear()
+                
+                // Filtrar por familia si se proporcionó una
+                val productos = if (codFamilia != null) {
+                    data.productos.filter { it.codfamilia == codFamilia }
+                } else {
+                    data.productos
+                }
+                
+                todosLosProductos.addAll(productos)
+                productosFiltrados.clear()
+                productosFiltrados.addAll(todosLosProductos)
+                
+                configurarFiltros()
+                adapter.notifyDataSetChanged()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun configurarFiltros() {
+        val chipGroup = findViewById<ChipGroup>(R.id.chipGroup)
+        chipGroup.removeAllViews()
+        
+        val categorias = todosLosProductos.map { it.nombre.substringBefore(" T-").trim() }.distinct().sorted()
+        
+        val chipTodos = com.google.android.material.chip.Chip(this)
+        chipTodos.text = "TODOS"
+        chipTodos.isCheckable = true
+        chipTodos.isChecked = true
+        chipTodos.id = View.generateViewId()
+        chipGroup.addView(chipTodos)
+
+        categorias.forEach { cat ->
+            val chip = com.google.android.material.chip.Chip(this)
+            chip.text = cat
+            chip.isCheckable = true
+            chip.id = View.generateViewId()
+            chipGroup.addView(chip)
+        }
+
+        chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (checkedIds.isEmpty()) {
+                productosFiltrados.clear()
+                productosFiltrados.addAll(todosLosProductos)
+            } else {
+                val selectedId = checkedIds.first()
+                val selectedChip = group.findViewById<com.google.android.material.chip.Chip>(selectedId)
+                val category = selectedChip.text.toString()
+
+                productosFiltrados.clear()
+                if (category == "TODOS") {
+                    productosFiltrados.addAll(todosLosProductos)
+                } else {
+                    productosFiltrados.addAll(todosLosProductos.filter { it.nombre.startsWith(category) })
+                }
+            }
+            adapter.notifyDataSetChanged()
         }
     }
 }

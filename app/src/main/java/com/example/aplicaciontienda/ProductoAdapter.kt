@@ -1,24 +1,21 @@
 package com.example.aplicaciontienda
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ProductoAdapter(
-    private val productos: List<Producto>,
-    private val onCantidadChanged: () -> Unit
+    private val productos: List<Producto>
 ) : RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
 
     class ProductoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNombre: TextView = view.findViewById(R.id.tvNombre)
-        val tvColegio: TextView = view.findViewById(R.id.tvColegio)
         val tvPrecio: TextView = view.findViewById(R.id.tvPrecio)
-        val tvCantidad: TextView = view.findViewById(R.id.tvCantidad)
-        val btnMas: Button = view.findViewById(R.id.btnMas)
-        val btnMenos: Button = view.findViewById(R.id.btnMenos)
+        val tvTalla: TextView = view.findViewById(R.id.tvTalla)
+        val tvStock: TextView = view.findViewById(R.id.tvStock)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
@@ -28,23 +25,16 @@ class ProductoAdapter(
 
     override fun onBindViewHolder(holder: ProductoViewHolder, position: Int) {
         val producto = productos[position]
-        holder.tvNombre.text = "${producto.nombre} (Talla: ${producto.talla})"
-        holder.tvColegio.text = producto.colegio
-        holder.tvPrecio.text = "$${producto.precio}"
-        holder.tvCantidad.text = producto.cantidad.toString()
+        holder.tvNombre.text = producto.nombre
+        holder.tvPrecio.text = "desde ${Utils.formatPrice(producto.precio)}"
+        holder.tvTalla.text = "Talla: ${producto.talla}"
+        holder.tvStock.text = "Stock: ${producto.stock}"
 
-        holder.btnMas.setOnClickListener {
-            producto.cantidad++
-            holder.tvCantidad.text = producto.cantidad.toString()
-            onCantidadChanged()
-        }
-
-        holder.btnMenos.setOnClickListener {
-            if (producto.cantidad > 0) {
-                producto.cantidad--
-                holder.tvCantidad.text = producto.cantidad.toString()
-                onCantidadChanged()
-            }
+        holder.itemView.setOnClickListener {
+            val context = it.context
+            val intent = Intent(context, ProductDetailActivity::class.java)
+            intent.putExtra("PRODUCTO", producto)
+            context.startActivity(intent)
         }
     }
 
