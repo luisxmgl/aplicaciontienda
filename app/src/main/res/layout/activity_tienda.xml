@@ -52,27 +52,28 @@
             android:id="@+id/btnCart"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@color/outline_light"
-            android:padding="10dp"
-            android:src="?android:attr/actionModeFindDrawable"
-            app:tint="@color/black" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:src="@drawable/shoppingcart"
+            app:tint="@null" />
 
         <ImageButton
             android:id="@+id/btnChat"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="10dp"
-            android:src="@android:drawable/sym_action_chat"
-            app:tint="@color/brand_azul" />
+            android:padding="8dp"
+            android:src="@drawable/chaticonoa"
+            app:tint="@null" />
 
         <ImageButton
             android:id="@+id/btnInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
-            android:src="@android:drawable/ic_dialog_info"
+            android:src="@drawable/infoicono"
+            app:tint="@null"
             android:visibility="gone" />
     </LinearLayout>
 
@@ -97,6 +98,15 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Todos" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipOrderPrice"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menor Precio"
+                app:chipIcon="@android:drawable/ic_menu_sort_by_size"
+                app:chipIconVisible="true" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Choice"

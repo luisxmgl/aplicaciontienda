@@ -27,8 +27,8 @@ class ProductoAdapter(
         val producto = productos[position]
         holder.tvNombre.text = producto.nombre
         holder.tvPrecio.text = "desde ${Utils.formatPrice(producto.precio)}"
-        holder.tvTalla.text = "Talla: ${producto.talla}"
-        holder.tvStock.text = "Stock: ${producto.stock}"
+        holder.tvTalla.visibility = View.GONE
+        holder.tvStock.visibility = View.GONE
 
         holder.itemView.setOnClickListener {
             val context = it.context

@@ -29,7 +29,7 @@ class CartAdapter(
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val item = items[position]
         holder.tvName.text = item.producto.nombre
-        holder.tvTalla.text = "Talla: ${item.producto.talla}"
+        holder.tvTalla.visibility = View.GONE
         holder.tvPrice.text = Utils.formatPrice(item.producto.precio * item.cantidad)
         holder.tvQuantity.text = item.cantidad.toString()
 

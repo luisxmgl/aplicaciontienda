@@ -31,30 +31,16 @@ class MainSelectorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_selector)
 
         repository = CatalogRepository(this)
-        esAdmin = intent.getBooleanExtra("ES_ADMIN", false)
+        esAdmin = false // Acceso solo como invitado
         
         val fabChat = findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fabChat)
         val btnLogout = findViewById<ImageButton>(R.id.btnLogout)
         
-        if (esAdmin) {
-            fabChat.visibility = View.VISIBLE
-            fabChat.setOnClickListener {
-                startActivity(Intent(this, AdminChatListActivity::class.java))
-            }
-            btnLogout.visibility = View.VISIBLE
-            btnLogout.setOnClickListener {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }
-        } else {
-            fabChat.visibility = View.VISIBLE // Habilitar para invitados
-            fabChat.setOnClickListener {
-                val intent = Intent(this, ChatActivity::class.java)
-                intent.putExtra("ES_ADMIN", false)
-                startActivity(intent)
-            }
-            btnLogout.visibility = View.GONE
+        fabChat.visibility = View.VISIBLE
+        fabChat.setOnClickListener {
+            Utils.openWhatsApp(this, "+56920680021", "Hola! Quería consultar sobre los uniformes.")
         }
+        btnLogout.visibility = View.GONE
 
         val rvColegios = findViewById<RecyclerView>(R.id.rvColegios)
         rvColegios.layoutManager = LinearLayoutManager(this)
@@ -126,7 +112,7 @@ class MainSelectorActivity : AppCompatActivity() {
 
                 data.forEach { ui ->
                     todosLosColegios.add(Colegio(
-                        id = ui.id.toIntOrNull() ?: 0,
+                        id = ui.id,
                         nombre = ui.nombre,
                         comuna = ui.comuna,
                         direccion = "",
@@ -137,12 +123,7 @@ class MainSelectorActivity : AppCompatActivity() {
                 
                 aplicarFiltros()
 
-                val totalProdCount = data.sumOf { it.productos.size }
-                if (esAdmin) {
-                    findViewById<TextView>(R.id.tvCountHeader).text = "$totalProdCount productos en catálogo"
-                } else {
-                    findViewById<TextView>(R.id.tvCountHeader).text = "${todosLosColegios.size} colegios disponibles"
-                }
+                findViewById<TextView>(R.id.tvCountHeader).text = "Selecciona tu colegio"
             } catch (e: Exception) {
                 e.printStackTrace()
             }

@@ -9,6 +9,7 @@ import com.google.android.material.card.MaterialCardView
 
 class ColegioAdapter(
     private var colegios: List<Colegio>,
+    private val showCount: Boolean = false,
     private val onColegioClicked: (Colegio) -> Unit
 ) : RecyclerView.Adapter<ColegioAdapter.ColegioViewHolder>() {
 
@@ -31,6 +32,7 @@ class ColegioAdapter(
         holder.tvNombre.text = colegio.nombre
         holder.tvComuna.text = colegio.comuna
         holder.tvCount.text = colegio.productos.size.toString()
+        holder.tvCount.visibility = if (showCount) View.VISIBLE else View.GONE
         
         if (colegio.logo.isNotEmpty()) {
             val resId = holder.itemView.context.resources.getIdentifier(

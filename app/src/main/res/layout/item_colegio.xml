@@ -48,12 +48,14 @@
 
             <TextView
                 android:id="@+id/tvNombreColegio"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nombre del Colegio"
                 android:textColor="#333333"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

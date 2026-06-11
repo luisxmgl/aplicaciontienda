@@ -1,7 +1,7 @@
 package com.example.aplicaciontienda
 
 data class Colegio(
-    val id: Int,
+    val id: String,
     val nombre: String,
     val comuna: String,
     val direccion: String = "",

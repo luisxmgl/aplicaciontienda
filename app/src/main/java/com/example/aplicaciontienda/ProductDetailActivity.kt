@@ -6,8 +6,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -23,21 +21,16 @@ class ProductDetailActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tvDetailName).text = producto.nombre
         findViewById<TextView>(R.id.tvDetailPrice).text = Utils.formatPrice(producto.precio)
-        val tvStock = findViewById<TextView>(R.id.tvDetailStock)
-        tvStock.text = "Stock disponible: ${producto.stock}"
-        tvStock.visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvDescription).text = producto.descripcion
+        findViewById<TextView>(R.id.tvDetailStock).visibility = View.GONE
         
         // Quitar placeholder de imagen
         findViewById<View>(R.id.ivProductLarge).visibility = View.GONE
         (findViewById<View>(R.id.ivProductLarge).parent as? View)?.visibility = View.GONE
 
-        val cgSizes = findViewById<ChipGroup>(R.id.cgSizes)
-        // La talla ya viene en el producto en el nuevo catálogo
-        val chip = Chip(this)
-        chip.text = producto.talla
-        chip.isCheckable = true
-        chip.isChecked = true
-        cgSizes.addView(chip)
+        // La talla ya viene en el nombre del producto, ocultamos el selector
+        findViewById<View>(R.id.cgSizes).visibility = View.GONE
+        findViewById<View>(R.id.tvLabelTalla).visibility = View.GONE
 
         findViewById<MaterialButton>(R.id.btnAddToCart).setOnClickListener {
             CartManager.addItem(producto)
@@ -46,7 +39,7 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         findViewById<MaterialButton>(R.id.btnWhatsAppDetail).setOnClickListener {
-            val message = "Hola! Me interesa el producto: ${producto.nombre}, talla: ${producto.talla} del colegio: ${producto.colegio}"
+            val message = "Hola! Me interesa el producto: ${producto.nombre} del colegio: ${producto.colegio}"
             Utils.openWhatsApp(this, "56920680021", message)
         }
 

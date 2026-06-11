@@ -56,7 +56,7 @@
             android:id="@+id/btnInvitado"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:text="Entrar como Invitado"
+            android:text="Entrar a la tienda"
             android:textAllCaps="false"
             app:backgroundTint="@color/brand_azul"
             android:textColor="#FFFFFF"
@@ -64,101 +64,6 @@
             app:cornerRadius="12dp"
             android:layout_marginBottom="16dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAdmin"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Acceso Administrador"
-            android:textAllCaps="false"
-            android:textColor="@color/brand_azul"
-            android:textSize="18sp"
-            app:cornerRadius="12dp"
-            app:strokeColor="#CCCCCC"
-            app:strokeWidth="1dp" />
-    </LinearLayout>
-
-    <!-- Layout de Login Admin -->
-    <LinearLayout
-        android:id="@+id/layoutLoginAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Acceso Administrador"
-            android:textColor="#000000"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="32dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUsuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Usuario" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
-            app:passwordToggleEnabled="true"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contraseña"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <CheckBox
-            android:id="@+id/cbRecordar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Recordar mis datos"
-            android:layout_marginTop="8dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnIniciarSesion"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Iniciar Sesión"
-            android:textAllCaps="false"
-            app:backgroundTint="@color/brand_azul"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="12dp"
-            android:layout_marginTop="32dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnVolver"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Volver"
-            android:textAllCaps="false"
-            android:textColor="@color/brand_azul"
-            android:layout_marginTop="8dp" />
     </LinearLayout>
 
     <View

@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="PRODUCTO"
                 android:textColor="#222222"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView

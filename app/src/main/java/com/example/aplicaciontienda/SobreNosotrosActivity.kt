@@ -7,10 +7,12 @@ import android.os.Looper
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
+import kotlinx.coroutines.launch
 
 class SobreNosotrosActivity : AppCompatActivity() {
 
@@ -18,14 +20,14 @@ class SobreNosotrosActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private val sliderHandler = Handler(Looper.getMainLooper())
     private val sliderRunnable = Runnable {
-        viewPager.currentItem = viewPager.currentItem + 1
+        viewPager.currentItem += 1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sobre_nosotros)
 
-        esAdmin = intent.getBooleanExtra("ES_ADMIN", false)
+        esAdmin = false // Solo invitado
 
         findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
             finish()
@@ -37,6 +39,11 @@ class SobreNosotrosActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnInstagram).setOnClickListener {
             Utils.openInstagram(this, "https://www.instagram.com/confecciones.villaacero/")
+        }
+
+        findViewById<MaterialButton>(R.id.btnMaps).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://www.google.com/maps/place/Confecciones+Villa+Acero/@-36.796784,-73.0902038,17z/data=!3m1!4b1!4m16!1m9!4m8!1m0!1m6!1m2!1s0x9669ca8024a50de1:0xb6df2801e6db18f1!2sConfecciones+Villa+Acero+-+Los+Poetas+8741,+4601963+Hualp%C3%A9n,+B%C3%ADo+B%C3%ADo!2m2!1d-73.0876289!2d-36.7967839!3m5!1s0x9669ca8024a50de1:0xb6df2801e6db18f1!8m2!3d-36.796784!4d-73.0876289!16s%2Fg%2F11clyd5j6g?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D"))
+            startActivity(intent)
         }
 
         // Configurar Slideshow
@@ -62,14 +69,37 @@ class SobreNosotrosActivity : AppCompatActivity() {
         val rvColegios = findViewById<RecyclerView>(R.id.rvColegios)
         rvColegios.layoutManager = LinearLayoutManager(this)
         
-        val colegios = cargarColegios()
-        rvColegios.adapter = ColegioAdapter(colegios) { colegio ->
-            val intent = Intent(this, TiendaActivity::class.java)
-            intent.putExtra("COLEGIO_ID", colegio.id)
-            intent.putExtra("COLEGIO_NOMBRE", colegio.nombre)
-            intent.putExtra("COLEGIO_COMUNA", colegio.comuna)
-            intent.putExtra("ES_ADMIN", esAdmin)
-            startActivity(intent)
+        cargarDatos(rvColegios)
+    }
+
+    private fun cargarDatos(rvColegios: RecyclerView) {
+        lifecycleScope.launch {
+            try {
+                val repository = CatalogRepository(this@SobreNosotrosActivity)
+                val data = repository.getCatalogData()
+                
+                val colegios = data.map { ui ->
+                    Colegio(
+                        id = ui.id,
+                        nombre = ui.nombre,
+                        comuna = ui.comuna,
+                        direccion = "",
+                        logo = ui.logo,
+                        productos = ui.productos
+                    )
+                }.sortedBy { it.nombre }
+
+                rvColegios.adapter = ColegioAdapter(colegios, showCount = false) { colegio ->
+                    val intent = Intent(this@SobreNosotrosActivity, TiendaActivity::class.java)
+                    intent.putExtra("COD_FAMILIA", colegio.id)
+                    intent.putExtra("COLEGIO_NOMBRE", colegio.nombre)
+                    intent.putExtra("COLEGIO_COMUNA", colegio.comuna)
+                    intent.putExtra("ES_ADMIN", esAdmin)
+                    startActivity(intent)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
@@ -81,33 +111,5 @@ class SobreNosotrosActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         sliderHandler.postDelayed(sliderRunnable, 1400)
-    }
-
-    private fun cargarColegios(): List<Colegio> {
-        val lista = mutableListOf<Colegio>()
-        try {
-            val jsonString = assets.open("catalogo_por_colegio.json").bufferedReader().use { it.readText() }
-            val rootObj = org.json.JSONObject(jsonString)
-            val array = rootObj.getJSONArray("colegios")
-            
-            val metadata = rootObj.getJSONObject("metadata")
-            findViewById<TextView>(R.id.tvTotalProductosStat).text = metadata.getInt("total_productos").toString()
-
-            for (i in 0 until array.length()) {
-                val obj = array.getJSONObject(i)
-                
-                lista.add(Colegio(
-                    id = i, // Usamos el índice como ID
-                    nombre = obj.getString("nombre"),
-                    comuna = "Concepción",
-                    direccion = "",
-                    logo = Utils.getLogoForColegio(obj.getString("nombre")),
-                    productos = emptyList()
-                ))
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return lista
     }
 }

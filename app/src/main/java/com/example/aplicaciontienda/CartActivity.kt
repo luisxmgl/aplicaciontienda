@@ -54,21 +54,21 @@ class CartActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.btnCheckout).setOnClickListener {
             val items = CartManager.getItems()
             if (items.isNotEmpty()) {
-                val sb = StringBuilder("¡Hola! Me gustaría consultar disponibilidad para el siguiente pedido:\n\n")
+                val sb = StringBuilder("¡Hola! Me gustaría realizar el siguiente pedido:\n\n")
                 items.forEach { item ->
-                    sb.append("- ${item.producto.nombre} (Talla: ${item.producto.talla}) x${item.cantidad}\n")
-                    sb.append("  Colegio: ${item.producto.colegio}\n")
+                    sb.append("• ${item.producto.nombre}\n")
+                    sb.append("  Cantidad: ${item.cantidad}\n")
+                    if (item.producto.colegio.isNotEmpty()) {
+                        sb.append("  Colegio: ${item.producto.colegio}\n")
+                    }
+                    sb.append("\n")
                 }
-                sb.append("\nTotal: ${Utils.formatPrice(CartManager.getTotal())}\n")
+                sb.append("Total estimado: ${Utils.formatPrice(CartManager.getTotal())}")
                 
-                // Opción 1: Abrir chat interno con esta información
-                val intent = Intent(this, ChatActivity::class.java)
-                intent.putExtra("CART_INFO", sb.toString())
-                startActivity(intent)
+                // Enviar pedido directamente por WhatsApp
+                Utils.openWhatsApp(this, "+56920680021", sb.toString())
                 
-                // Opcional: También dar opción de WhatsApp si se prefiere, 
-                // pero el requerimiento pide chat interno funcional.
-
+                // Limpiar carrito después de enviar
                 CartManager.clear()
                 finish()
             } else {

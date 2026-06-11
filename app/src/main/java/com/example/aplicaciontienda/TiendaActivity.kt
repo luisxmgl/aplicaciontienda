@@ -25,7 +25,7 @@ class TiendaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tienda)
 
         repository = CatalogRepository(this)
-        esAdmin = intent.getBooleanExtra("ES_ADMIN", false)
+        esAdmin = false // Solo invitado
         val codFamilia = intent.getStringExtra("COD_FAMILIA") // Usamos codfamilia ahora
         val colegioNombre = intent.getStringExtra("COLEGIO_NOMBRE") ?: "Tienda"
 
@@ -46,14 +46,7 @@ class TiendaActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.btnChat).setOnClickListener {
-            if (esAdmin) {
-                startActivity(Intent(this, AdminChatListActivity::class.java))
-            } else {
-                val intent = Intent(this, ChatActivity::class.java)
-                intent.putExtra("COLEGIO_NOMBRE", colegioNombre)
-                intent.putExtra("ES_ADMIN", esAdmin)
-                startActivity(intent)
-            }
+            Utils.openWhatsApp(this, "+56920680021", "Hola! Quería consultar sobre los uniformes de $colegioNombre.")
         }
 
         findViewById<ImageButton>(R.id.btnInfo).setOnClickListener {
@@ -101,6 +94,13 @@ class TiendaActivity : AppCompatActivity() {
         chipTodos.id = View.generateViewId()
         chipGroup.addView(chipTodos)
 
+        val chipPrecio = com.google.android.material.chip.Chip(this)
+        chipPrecio.text = "Menor Precio"
+        chipPrecio.isCheckable = true
+        chipPrecio.id = View.generateViewId()
+        chipPrecio.setChipIconResource(android.R.drawable.ic_menu_sort_by_size)
+        chipGroup.addView(chipPrecio)
+
         categorias.forEach { cat ->
             val chip = com.google.android.material.chip.Chip(this)
             chip.text = cat
@@ -119,10 +119,12 @@ class TiendaActivity : AppCompatActivity() {
                 val category = selectedChip.text.toString()
 
                 productosFiltrados.clear()
-                if (category == "TODOS") {
-                    productosFiltrados.addAll(todosLosProductos)
-                } else {
-                    productosFiltrados.addAll(todosLosProductos.filter { it.nombre.startsWith(category) })
+                when (category) {
+                    "TODOS" -> productosFiltrados.addAll(todosLosProductos)
+                    "Menor Precio" -> {
+                        productosFiltrados.addAll(todosLosProductos.sortedBy { it.precio })
+                    }
+                    else -> productosFiltrados.addAll(todosLosProductos.filter { it.nombre.startsWith(category) })
                 }
             }
             adapter.notifyDataSetChanged()

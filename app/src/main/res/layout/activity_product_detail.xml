@@ -79,6 +79,7 @@
                 android:visibility="gone" />
 
             <TextView
+                android:id="@+id/tvLabelTalla"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -108,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Uniforme de alta calidad, tela resistente y duradera ideal para el uso diario escolar."
+                android:text="Cargando descripción..."
                 android:textColor="#444444"
                 android:textSize="16sp"
                 android:lineSpacingExtra="4dp" />
@@ -137,7 +138,10 @@
             android:textAllCaps="false"
             android:textSize="18sp"
             app:backgroundTint="@color/brand_azul"
-            app:cornerRadius="12dp" />
+            app:cornerRadius="12dp"
+            app:icon="@drawable/shoppingcart"
+            app:iconGravity="textStart"
+            app:iconTint="@null" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnWhatsAppDetail"
