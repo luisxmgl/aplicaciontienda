@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,6 +17,7 @@ class ProductoAdapter(
         val tvPrecio: TextView = view.findViewById(R.id.tvPrecio)
         val tvTalla: TextView = view.findViewById(R.id.tvTalla)
         val tvStock: TextView = view.findViewById(R.id.tvStock)
+        val btnFavorite: ImageButton = view.findViewById(R.id.btnFavorite)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
@@ -29,6 +31,16 @@ class ProductoAdapter(
         holder.tvPrecio.text = "desde ${Utils.formatPrice(producto.precio)}"
         holder.tvTalla.visibility = View.GONE
         holder.tvStock.visibility = View.GONE
+
+        val isFav = FavoritesManager.isFavorite(producto)
+        holder.btnFavorite.setImageResource(
+            if (isFav) android.R.drawable.btn_star_big_on else android.R.drawable.btn_star_big_off
+        )
+
+        holder.btnFavorite.setOnClickListener {
+            FavoritesManager.toggleFavorite(it.context, producto)
+            notifyItemChanged(position)
+        }
 
         holder.itemView.setOnClickListener {
             val context = it.context

@@ -3,11 +3,12 @@ package com.example.aplicaciontienda
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class CartAdapter(
-    private val items: List<CartItem>,
+    private var items: List<CartItem>,
     private val onUpdate: () -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
@@ -29,31 +30,56 @@ class CartAdapter(
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val item = items[position]
         holder.tvName.text = item.producto.nombre
-        holder.tvTalla.visibility = View.GONE
+        holder.tvTalla.text = "Talla: ${item.producto.talla}"
         holder.tvPrice.text = Utils.formatPrice(item.producto.precio * item.cantidad)
         holder.tvQuantity.text = item.cantidad.toString()
 
         holder.btnPlus.setOnClickListener {
+            animateClick(it)
             CartManager.updateQuantity(item, 1)
             notifyItemChanged(position)
             onUpdate()
         }
 
         holder.btnMinus.setOnClickListener {
+            animateClick(it)
+            val oldQty = item.cantidad
             CartManager.updateQuantity(item, -1)
-            if (CartManager.getItems().contains(item)) {
+            if (oldQty > 1) {
                 notifyItemChanged(position)
             } else {
-                notifyDataSetChanged()
+                // Item was removed
+                notifyItemRemoved(position)
+                notifyItemRangeChanged(position, itemCount)
             }
             onUpdate()
         }
 
         holder.btnDelete.setOnClickListener {
-            CartManager.removeItem(item)
-            notifyDataSetChanged()
-            onUpdate()
+            val currentPos = holder.adapterPosition
+            if (currentPos != RecyclerView.NO_POSITION) {
+                CartManager.removeItem(item)
+                notifyItemRemoved(currentPos)
+                notifyItemRangeChanged(currentPos, itemCount)
+                onUpdate()
+            }
         }
+    }
+
+    private fun animateClick(view: View) {
+        view.animate()
+            .scaleX(0.8f)
+            .scaleY(0.8f)
+            .setDuration(100)
+            .withEndAction {
+                view.animate()
+                    .scaleX(1.0f)
+                    .scaleY(1.0f)
+                    .setDuration(100)
+                    .setInterpolator(OvershootInterpolator())
+                    .start()
+            }
+            .start()
     }
 
     override fun getItemCount() = items.size

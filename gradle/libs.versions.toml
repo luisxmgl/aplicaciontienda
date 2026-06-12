@@ -8,6 +8,8 @@ appcompat = "1.7.1"
 material = "1.14.0"
 firebaseBom = "33.9.0"
 gson = "2.10.1"
+zxing = "3.5.4"
+lottie = "6.4.0"
 composeBom = "2024.02.01"
 
 [libraries]
@@ -23,6 +25,8 @@ firebase-storage = { group = "com.google.firebase", name = "firebase-storage-ktx
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version = "4.16.0" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+zxing = { group = "com.google.zxing", name = "core", version.ref = "zxing" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }

@@ -17,4 +17,9 @@
     <color name="surface_light">#FAFAFA</color>
     <color name="surface_variant">#EEEEEE</color>
     <color name="outline_light">#DDDDDD</color>
+
+    <!-- Chatbot colors -->
+    <color name="bot_bubble_bg">#F1F1F1</color>
+    <color name="user_bubble_bg">#1A456F</color>
+    <color name="chat_bg">#FFFFFF</color>
 </resources>

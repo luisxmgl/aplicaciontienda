@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
     implementation(libs.gson)
+    implementation(libs.zxing)
+    implementation(libs.lottie)
 
     // Compose
     implementation(platform(libs.androidx.compose.bom))

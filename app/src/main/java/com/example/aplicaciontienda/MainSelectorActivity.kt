@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -63,6 +64,27 @@ class MainSelectorActivity : AppCompatActivity() {
         cargarColegios()
         configurarBusqueda()
         configurarFiltrosComuna()
+        configurarNavegacion()
+        
+        FavoritesManager.init(this)
+    }
+
+    private fun configurarNavegacion() {
+        val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_favorites -> {
+                    startActivity(Intent(this, FavoritesActivity::class.java))
+                    true
+                }
+                R.id.nav_tracking -> {
+                    startActivity(Intent(this, TrackingActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun configurarFiltrosComuna() {

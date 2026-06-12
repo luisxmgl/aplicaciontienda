@@ -8,56 +8,73 @@
     app:cardElevation="2dp"
     app:strokeWidth="0dp">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvNombre"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="PRODUCTO"
-                android:textColor="#222222"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tvPrecio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="desde $0"
-                android:textColor="@color/brand_azul"
-                android:textSize="18sp"
-                android:layout_marginTop="6dp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:text="PRODUCTO"
+                    android:textColor="#222222"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvTalla"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Talla"
-                android:textColor="#777777"
-                android:textSize="15sp"
-                android:layout_marginTop="2dp" />
+                <TextView
+                    android:id="@+id/tvPrecio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="desde $0"
+                    android:textColor="@color/brand_azul"
+                    android:textSize="18sp"
+                    android:layout_marginTop="6dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvStock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Stock: 0"
-                android:textColor="#FF9800"
-                android:textSize="13sp"
-                android:layout_marginTop="2dp"
-                android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tvTalla"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Talla"
+                    android:textColor="#777777"
+                    android:textSize="15sp"
+                    android:layout_marginTop="2dp" />
 
+                <TextView
+                    android:id="@+id/tvStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stock: 0"
+                    android:textColor="#FF9800"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end|top"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"
+            android:src="@android:drawable/btn_star_big_off"
+            app:tint="@color/brand_azul" />
+
+    </FrameLayout>
 
 </com.google.android.material.card.MaterialCardView>
