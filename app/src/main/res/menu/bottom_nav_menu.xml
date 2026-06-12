@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_home"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="Tienda" />
-    <item
-        android:id="@+id/nav_favorites"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="Favoritos" />
+        android:id="@+id/nav_my_orders"
+        android:icon="@drawable/mispedidos"
+        android:title="@string/nav_my_orders" />
     <item
         android:id="@+id/nav_tracking"
-        android:icon="@android:drawable/ic_menu_mapmode"
-        android:title="Seguimiento" />
+        android:icon="@drawable/seguimiento"
+        android:title="@string/nav_tracking" />
 </menu>

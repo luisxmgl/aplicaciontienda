@@ -58,6 +58,18 @@
             android:name=".FavoritesActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".MyOrdersActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminLoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminOrdersActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

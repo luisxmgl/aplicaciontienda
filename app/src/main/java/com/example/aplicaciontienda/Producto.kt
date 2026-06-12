@@ -51,6 +51,26 @@ data class Producto(
 
     val colegio: String get() = nomfamilia.trim()
 
+    val puntosCost: Int get() {
+        val multiplier = when {
+            nombre.uppercase().contains("PARKA") || nombre.uppercase().contains("CASACA") -> 1.2
+            nombre.uppercase().contains("POLERA") -> 0.9
+            else -> 1.0
+        }
+        // Aproximadamente 1 punto por cada $100 de precio
+        return (precio / 100 * multiplier).toInt().coerceAtLeast(100)
+    }
+
+    val puntosEarn: Int get() {
+        val multiplier = when {
+            nombre.uppercase().contains("POLERON") -> 1.5
+            nombre.uppercase().contains("BUZO") -> 1.2
+            else -> 1.0
+        }
+        // Aproximadamente 1 punto por cada $1000 de precio
+        return (precio / 1000 * multiplier).toInt().coerceAtLeast(1)
+    }
+
     val descripcion: String get() {
         val name = producto.uppercase()
         return when {

@@ -25,8 +25,8 @@ class TiendaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tienda)
 
         repository = CatalogRepository(this)
-        esAdmin = false // Solo invitado
-        val codFamilia = intent.getStringExtra("COD_FAMILIA") // Usamos codfamilia ahora
+        esAdmin = intent.getBooleanExtra("ES_ADMIN", false)
+        val codFamilia = intent.getStringExtra("COD_FAMILIA")
         val colegioNombre = intent.getStringExtra("COLEGIO_NOMBRE") ?: "Tienda"
 
         findViewById<TextView>(R.id.tvColegioNombre).text = colegioNombre

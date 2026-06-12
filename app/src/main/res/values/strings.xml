@@ -41,4 +41,12 @@
     <string name="faq_a17">Estamos en Hualpén, calle Secundaria #123. Puedes encontrarnos fácilmente en Google Maps como "Tienda Villa Acero".</string>
     <string name="faq_q18">¿Emiten factura para colegios o empresas?</string>
     <string name="faq_a18">Sí, emitimos boleta por defecto, pero si necesitas factura puedes solicitarla al momento del retiro entregando los datos de facturación.</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_my_orders">Mis Pedidos</string>
+    <string name="nav_tracking">Seguimiento</string>
+    <string name="admin_access">Acceso Administrador</string>
+    <string name="change_theme">Cambiar Tema</string>
+    <string name="copy_code">COPIAR CÓDIGO</string>
+    <string name="points_gain_info">Ganarás %1$d puntos con esta compra</string>
+    <string name="understood">ENTENDIDO</string>
 </resources>

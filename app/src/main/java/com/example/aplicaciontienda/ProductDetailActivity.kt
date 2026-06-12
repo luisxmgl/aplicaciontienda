@@ -45,6 +45,32 @@ class ProductDetailActivity : AppCompatActivity() {
             finish()
         }
 
+        val btnRedeem = findViewById<MaterialButton>(R.id.btnRedeemPoints)
+        val puntosNecesarios = producto.puntosCost
+        btnRedeem.text = "Canjear por $puntosNecesarios Villa Puntos"
+        
+        btnRedeem.setOnClickListener {
+            if (PointsManager.getPoints(this) >= puntosNecesarios) {
+                androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle("Canjear Producto")
+                    .setMessage("¿Deseas canjear ${producto.nombre} por $puntosNecesarios Villa Puntos?")
+                    .setPositiveButton("Canjear") { _, _ ->
+                        if (PointsManager.redeemPoints(this, puntosNecesarios)) {
+                            // Generamos un pedido especial de canje
+                            val orderCode = Utils.generateOrderCode()
+                            saveRedeemToFirebase(orderCode, producto)
+                            Toast.makeText(this, "¡Canje exitoso! Tu código: $orderCode", Toast.LENGTH_LONG).show()
+                            LocalOrdersManager.saveOrder(this, orderCode)
+                            finish()
+                        }
+                    }
+                    .setNegativeButton("Cancelar", null)
+                    .show()
+            } else {
+                Toast.makeText(this, "No tienes suficientes Villa Puntos (Tienes: ${PointsManager.getPoints(this)})", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         findViewById<MaterialButton>(R.id.btnWhatsAppDetail).setOnClickListener {
             val message = "Hola! Me interesa el producto: ${producto.nombre} del colegio: ${producto.colegio}"
             Utils.openWhatsApp(this, "56920680021", message)
@@ -55,6 +81,33 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         setupRelatedProducts(producto)
+    }
+
+    private fun saveRedeemToFirebase(code: String, producto: Producto) {
+        val database = com.google.firebase.database.FirebaseDatabase.getInstance().getReference("pedidos")
+        val orderId = database.push().key ?: return
+
+        val itemPedido = listOf(
+            CartItemPedido(
+                nombre = producto.nombre,
+                talla = producto.talla,
+                precio = 0,
+                cantidad = 1,
+                colegio = producto.colegio
+            )
+        )
+
+        val pedido = Pedido(
+            id = orderId,
+            codigoRetiro = code,
+            items = itemPedido,
+            total = 0,
+            extraCharge = 0,
+            customization = "CANJE POR VILLA PUNTOS",
+            estado = 1
+        )
+
+        database.child(code).setValue(pedido)
     }
 
     private fun setupRelatedProducts(currentProduct: Producto) {

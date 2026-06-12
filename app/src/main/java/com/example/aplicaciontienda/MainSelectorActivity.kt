@@ -32,17 +32,15 @@ class MainSelectorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_selector)
 
         repository = CatalogRepository(this)
-        esAdmin = false // Acceso solo como invitado
+        esAdmin = intent.getBooleanExtra("ES_ADMIN", false)
         
         val fabChat = findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fabChat)
-        val btnLogout = findViewById<ImageButton>(R.id.btnLogout)
         
-        fabChat.visibility = View.VISIBLE
+        fabChat.visibility = if (esAdmin) View.GONE else View.VISIBLE
         fabChat.setOnClickListener {
             Utils.openWhatsApp(this, "+56920680021", "Hola! Quería consultar sobre los uniformes.")
         }
-        btnLogout.visibility = View.GONE
-
+        
         val rvColegios = findViewById<RecyclerView>(R.id.rvColegios)
         rvColegios.layoutManager = LinearLayoutManager(this)
         
@@ -65,21 +63,22 @@ class MainSelectorActivity : AppCompatActivity() {
         configurarBusqueda()
         configurarFiltrosComuna()
         configurarNavegacion()
-        
-        FavoritesManager.init(this)
     }
 
     private fun configurarNavegacion() {
         val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> true
-                R.id.nav_favorites -> {
-                    startActivity(Intent(this, FavoritesActivity::class.java))
+                R.id.nav_my_orders -> {
+                    startActivity(Intent(this, MyOrdersActivity::class.java))
                     true
                 }
                 R.id.nav_tracking -> {
-                    startActivity(Intent(this, TrackingActivity::class.java))
+                    if (esAdmin) {
+                        startActivity(Intent(this, AdminOrdersActivity::class.java))
+                    } else {
+                        startActivity(Intent(this, TrackingActivity::class.java))
+                    }
                     true
                 }
                 else -> false

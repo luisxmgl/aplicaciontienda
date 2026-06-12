@@ -27,7 +27,6 @@
                     android:id="@+id/tvNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
                     android:text="PRODUCTO"
                     android:textColor="#222222"
                     android:textSize="17sp"
@@ -64,16 +63,6 @@
 
             </LinearLayout>
         </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/btnFavorite"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end|top"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="12dp"
-            android:src="@android:drawable/btn_star_big_off"
-            app:tint="@color/brand_azul" />
 
     </FrameLayout>
 

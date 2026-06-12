@@ -1,6 +1,5 @@
 package com.example.aplicaciontienda
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -61,6 +60,7 @@ class CartActivity : AppCompatActivity() {
                 showChatbot { extraCharge, customization ->
                     val totalFinal = CartManager.getTotal() + extraCharge
                     val orderCode = Utils.generateOrderCode()
+                    
                     val sb = StringBuilder("¡Hola! Me gustaría realizar el siguiente pedido:\n\n")
                     sb.append("CÓDIGO DE RETIRO: $orderCode\n")
                     sb.append("------------------------------\n")
@@ -80,10 +80,22 @@ class CartActivity : AppCompatActivity() {
                     
                     sb.append("Total final: ${Utils.formatPrice(totalFinal)}\n\n")
                     sb.append("*Nota: Tengo 3 días hábiles para cualquier cambio de opinión sobre los ajustes.*")
+
+                    // Guardar localmente primero para asegurar que aparezca en "Mis Pedidos"
+                    LocalOrdersManager.saveOrder(this, orderCode)
+                    
+                    try {
+                        saveOrderToFirebase(orderCode, items, CartManager.getTotal(), extraCharge, customization)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                    
+                    val pointsEarned = PointsManager.calculateTotalPoints(items)
+                    PointsManager.addPoints(this, pointsEarned)
                     
                     Utils.openWhatsApp(this, "+56920680021", sb.toString())
+                    
                     CartManager.clear()
-                    PointsManager.addPoints(this, PointsManager.calculatePoints(totalFinal))
                     showSuccessDialog(orderCode)
                 }
             } else {
@@ -95,10 +107,20 @@ class CartActivity : AppCompatActivity() {
             if (CartManager.getItems().isNotEmpty()) {
                 showChatbot { extraCharge, customization ->
                     val orderCode = Utils.generateOrderCode()
-                    val webpayUrl = "https://www.webpay.cl" 
+                    val webpayUrl = "https://www.webpay.cl/form-pay/392941" 
+                    
+                    // Guardar localmente primero para asegurar que aparezca en "Mis Pedidos"
+                    LocalOrdersManager.saveOrder(this, orderCode)
+                    
+                    try {
+                        saveOrderToFirebase(orderCode, CartManager.getItems(), CartManager.getTotal(), extraCharge, customization)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+
                     Utils.openUrl(this, webpayUrl)
                     
-                    PointsManager.addPoints(this, PointsManager.calculatePoints(CartManager.getTotal()))
+                    PointsManager.addPoints(this, PointsManager.calculateTotalPoints(CartManager.getItems()))
                     CartManager.clear()
                     showSuccessDialog(orderCode)
                 }
@@ -180,7 +202,7 @@ class CartActivity : AppCompatActivity() {
         
         // Add a copy button for the code
         val btnCopy = MaterialButton(this).apply {
-            this.text = "COPIAR CÓDIGO"
+            this.setText(R.string.copy_code)
             this.textSize = 12f
             this.layoutParams = android.widget.LinearLayout.LayoutParams(
                 android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -243,7 +265,7 @@ class CartActivity : AppCompatActivity() {
         }
 
         val btnOk = MaterialButton(this).apply {
-            this.text = "ENTENDIDO"
+            this.setText(R.string.understood)
             this.setOnClickListener { showRating() }
         }
         llOptions.addView(btnOk)
@@ -489,9 +511,10 @@ class CartActivity : AppCompatActivity() {
             },
             "📏 Solo confirmar tallas/regalo" to {
                 stepSizeConfirmation()
-            },
+                    },
             "🚀 No, comprar estándar" to {
-                stepFinished()
+                dialog.dismiss()
+                onComplete(0, "")
             }
         ), 600)
 
@@ -499,13 +522,41 @@ class CartActivity : AppCompatActivity() {
     }
 
 
+    private fun saveOrderToFirebase(code: String, items: List<CartItem>, total: Int, extra: Int, cust: String) {
+        val database = com.google.firebase.database.FirebaseDatabase.getInstance().getReference("pedidos")
+        
+        val itemPedido = items.map { 
+            CartItemPedido(
+                nombre = it.producto.nombre,
+                talla = it.producto.talla,
+                precio = it.producto.precio,
+                cantidad = it.cantidad,
+                colegio = it.producto.colegio
+            )
+        }
+        
+        val pedido = Pedido(
+            id = code,
+            codigoRetiro = code,
+            items = itemPedido,
+            total = total,
+            extraCharge = extra,
+            customization = cust,
+            estado = 1
+        )
+        
+        database.child(code).setValue(pedido).addOnFailureListener {
+            Toast.makeText(this, "Error al sincronizar con el servidor", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private fun actualizarTotal() {
         val total = CartManager.getTotal()
         tvTotal.text = Utils.formatPrice(total)
         tvSubtotal.text = Utils.formatPrice(total)
         
-        val points = PointsManager.calculatePoints(total)
-        tvPointsInfo.text = "Ganarás $points puntos con esta compra"
+        val points = PointsManager.calculateTotalPoints(CartManager.getItems())
+        tvPointsInfo.text = getString(R.string.points_gain_info, points)
 
         val emptyView = findViewById<android.view.View>(R.id.llEmptyCart)
         val rvCart = findViewById<android.view.View>(R.id.rvCart)

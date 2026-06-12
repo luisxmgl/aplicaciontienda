@@ -20,5 +20,16 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("ES_ADMIN", false)
             startActivity(intent)
         }
+
+        findViewById<android.widget.TextView>(R.id.btnAdminLogin).setOnClickListener {
+            val intent = Intent(this, AdminLoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<android.widget.TextView>(R.id.tvTitle).setOnLongClickListener {
+            val intent = Intent(this, AdminLoginActivity::class.java)
+            startActivity(intent)
+            true
+        }
     }
 }

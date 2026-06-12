@@ -97,7 +97,7 @@
                     android:id="@+id/btnMinus"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    android:src="@drawable/minusicon"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     app:tint="#555555"
                     android:padding="6dp" />
@@ -116,7 +116,7 @@
                     android:id="@+id/btnPlus"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:src="@android:drawable/ic_menu_add"
+                    android:src="@drawable/plusicon"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     app:tint="#555555"
                     android:padding="6dp" />

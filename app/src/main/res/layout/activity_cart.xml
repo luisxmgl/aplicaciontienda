@@ -32,10 +32,10 @@
                     android:id="@+id/btnThemeToggle"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@android:drawable/ic_menu_compass"
-                    app:tint="@color/brand_azul"
-                    android:contentDescription="Cambiar Tema" />
+                    android:src="@android:drawable/ic_menu_day"
+                    android:contentDescription="@string/change_theme" />
 
                 <ImageButton
                     android:id="@+id/btnClearCart"
@@ -124,53 +124,6 @@
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_cart" />
-
-            <!-- Coupon Section -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="#DDDDDD"
-                app:cardBackgroundColor="#FFFFFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="12dp"
-                        android:src="@android:drawable/ic_menu_agenda"
-                        app:tint="@color/brand_azul"
-                        android:contentDescription="Cupón" />
-
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:background="@null"
-                        android:hint="Código de descuento"
-                        android:textSize="14sp"
-                        android:maxLines="1"
-                        android:inputType="textCapCharacters" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Aplicar"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:textAllCaps="false"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
                 android:id="@+id/llEmptyCart"

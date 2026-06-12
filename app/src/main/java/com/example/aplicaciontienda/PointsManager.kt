@@ -29,8 +29,12 @@ object PointsManager {
         return false
     }
 
-    // 1 punto por cada $1000 gastados
+    // Canje personalizado por producto
     fun calculatePoints(total: Int): Int {
-        return total / 1000
+        return total / 5000
+    }
+
+    fun calculateTotalPoints(items: List<CartItem>): Int {
+        return items.sumOf { it.producto.puntosEarn * it.cantidad }
     }
 }
