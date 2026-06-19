@@ -38,7 +38,7 @@
     <string name="faq_q16">¿Cuál es el horario de atención?</string>
     <string name="faq_a16">Atendemos de Lunes a Viernes de 09:00 a 18:30 y Sábados de 10:00 a 14:00 (excepto festivos).</string>
     <string name="faq_q17">¿Dónde están ubicados exactamente?</string>
-    <string name="faq_a17">Estamos en Hualpén, calle Secundaria #123. Puedes encontrarnos fácilmente en Google Maps como "Tienda Villa Acero".</string>
+    <string name="faq_a17">Estamos en Hualpén, calle Secundaria #123. Puedes encontrarnos fácilmente en Google Maps como &#8220;Tienda Villa Acero&#8221;.</string>
     <string name="faq_q18">¿Emiten factura para colegios o empresas?</string>
     <string name="faq_a18">Sí, emitimos boleta por defecto, pero si necesitas factura puedes solicitarla al momento del retiro entregando los datos de facturación.</string>
     <string name="nav_home">Inicio</string>
@@ -49,4 +49,19 @@
     <string name="copy_code">COPIAR CÓDIGO</string>
     <string name="points_gain_info">Ganarás %1$d puntos con esta compra</string>
     <string name="understood">ENTENDIDO</string>
+    <string name="clear_cart_title">Vaciar carrito</string>
+    <string name="clear_cart_message">¿Estás seguro de que quieres eliminar todos los productos del carrito?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="cart_cleared">Carrito vaciado</string>
+    <string name="order_success">¡Pedido realizado con éxito! 🎉</string>
+    <string name="order_code_is">Tu código de retiro es: %1$s</string>
+    <string name="show_qr_to_cashier">Muéstrale este QR a la cajera al retirar:</string>
+    <string name="experience_rating">¿Qué tal fue tu experiencia hoy?</string>
+    <string name="rating_thanks">¡Gracias por calificar con %1$d estrellas! ❤️</string>
+    <string name="asistente_escribiendo">Asistente escribiendo&#8230;</string>
+    <string name="chatbot_summary_extra">¡Excelente! He configurado tus ajustes: %1$s.\n\nEl total se actualizará con un cargo de %2$s por el trabajo adicional.</string>
+    <string name="chatbot_summary_standard">Entendido. Procesaremos tu pedido con las medidas estándar de fábrica.</string>
+    <string name="finalize_order_question">¿Deseas finalizar el pedido ahora?</string>
+    <string name="confirm_finalize_order">✅ SÍ, FINALIZAR PEDIDO</string>
 </resources>

@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.google.services)
+    // alias(libs.plugins.google.services) // Comentado temporalmente por falta de google-services.json
 }
 
 android {

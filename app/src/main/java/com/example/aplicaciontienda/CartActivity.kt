@@ -1,12 +1,22 @@
 package com.example.aplicaciontienda
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+
+
 
 class CartActivity : AppCompatActivity() {
 
@@ -38,18 +48,19 @@ class CartActivity : AppCompatActivity() {
         
         actualizarTotal()
 
-        findViewById<android.view.View>(R.id.btnClearCart).setOnClickListener {
+        findViewById<View>(R.id.btnClearCart).setOnClickListener {
             if (CartManager.getItems().isNotEmpty()) {
-                androidx.appcompat.app.AlertDialog.Builder(this)
-                    .setTitle("Vaciar carrito")
-                    .setMessage("¿Estás seguro de que quieres eliminar todos los productos del carrito?")
-                    .setPositiveButton("Sí") { _, _ ->
+                AlertDialog.Builder(this)
+                    .setTitle(R.string.clear_cart_title)
+                    .setMessage(R.string.clear_cart_message)
+                    .setPositiveButton(R.string.yes) { _, _ ->
+                        val count = CartManager.getItems().size
                         CartManager.clear()
-                        adapter.notifyDataSetChanged()
+                        adapter.notifyItemRangeRemoved(0, count)
                         actualizarTotal()
-                        Toast.makeText(this, "Carrito vaciado", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, R.string.cart_cleared, Toast.LENGTH_SHORT).show()
                     }
-                    .setNegativeButton("No", null)
+                    .setNegativeButton(R.string.no, null)
                     .show()
             }
         }
@@ -130,15 +141,15 @@ class CartActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<android.view.View>(R.id.tvFaqLink).setOnClickListener {
+        findViewById<View>(R.id.tvFaqLink).setOnClickListener {
             showFaqDialog()
         }
 
-        findViewById<android.view.View>(R.id.btnThemeToggle).setOnClickListener {
+        findViewById<View>(R.id.btnThemeToggle).setOnClickListener {
             toggleDarkMode()
         }
 
-        findViewById<android.view.View>(R.id.btnGoShopping)?.setOnClickListener {
+        findViewById<View>(R.id.btnGoShopping)?.setOnClickListener {
             finish() // Volver a la tienda
         }
     }
@@ -146,23 +157,23 @@ class CartActivity : AppCompatActivity() {
     private fun toggleDarkMode() {
         val currentMode = resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK
         if (currentMode == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
-            androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         } else {
-            androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
     }
 
     private fun showFaqDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_faq, null)
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this)
             .setView(dialogView)
             .create()
         
-        dialogView.findViewById<android.view.View>(R.id.btnCloseFaq).setOnClickListener {
+        dialogView.findViewById<View>(R.id.btnCloseFaq).setOnClickListener {
             dialog.dismiss()
         }
 
-        dialogView.findViewById<android.view.View>(R.id.btnOpenMap)?.setOnClickListener {
+        dialogView.findViewById<View>(R.id.btnOpenMap)?.setOnClickListener {
             Utils.openGoogleMaps(this, "Tienda Villa Acero, Hualpén")
         }
 
@@ -171,11 +182,11 @@ class CartActivity : AppCompatActivity() {
 
     private fun showSuccessDialog(orderCode: String) {
         val dialogView = layoutInflater.inflate(R.layout.dialog_chatbot, null)
-        val llChat = dialogView.findViewById<android.widget.LinearLayout>(R.id.llChatContainer)
-        val llOptions = dialogView.findViewById<android.widget.LinearLayout>(R.id.llOptionsContainer)
+        val llChat = dialogView.findViewById<LinearLayout>(R.id.llChatContainer)
+        val llOptions = dialogView.findViewById<LinearLayout>(R.id.llOptionsContainer)
         val svChat = dialogView.findViewById<androidx.core.widget.NestedScrollView>(R.id.svChat)
 
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this)
             .setView(dialogView)
             .setCancelable(false)
             .create()
@@ -184,32 +195,32 @@ class CartActivity : AppCompatActivity() {
             val tv = TextView(this).apply {
                 this.text = text
                 this.setPadding(30, 20, 30, 20)
-                this.layoutParams = android.widget.LinearLayout.LayoutParams(
-                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
-                    android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+                this.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
                 ).apply {
                     this.setMargins(if (isBot) 0 else 60, 10, if (isBot) 60 else 0, 10)
-                    this.gravity = if (isBot) android.view.Gravity.START else android.view.Gravity.END
+                    this.gravity = if (isBot) Gravity.START else Gravity.END
                 }
                 this.setBackgroundResource(if (isBot) R.drawable.bg_message_received else R.drawable.bg_message_sent)
-                this.setTextColor(if (isBot) android.graphics.Color.BLACK else android.graphics.Color.WHITE)
+                this.setTextColor(if (isBot) Color.BLACK else Color.WHITE)
             }
             llChat.addView(tv)
-            svChat.post { svChat.fullScroll(android.view.View.FOCUS_DOWN) }
+            svChat.post { svChat.fullScroll(View.FOCUS_DOWN) }
         }
 
-        addMessage("¡Pedido realizado con éxito! 🎉", true)
-        addMessage("Tu código de retiro es: $orderCode", true)
+        addMessage(getString(R.string.order_success), true)
+        addMessage(getString(R.string.order_code_is, orderCode), true)
         
         // Add a copy button for the code
         val btnCopy = MaterialButton(this).apply {
             this.setText(R.string.copy_code)
             this.textSize = 12f
-            this.layoutParams = android.widget.LinearLayout.LayoutParams(
-                android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
-                android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+            this.layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
             ).apply { 
-                this.gravity = android.view.Gravity.CENTER
+                this.gravity = Gravity.CENTER
                 this.setMargins(0, 0, 0, 20)
             }
             this.setOnClickListener {
@@ -221,14 +232,14 @@ class CartActivity : AppCompatActivity() {
         }
         llChat.addView(btnCopy)
 
-        addMessage("Muéstrale este QR a la cajera al retirar:", true)
+        addMessage(getString(R.string.show_qr_to_cashier), true)
 
         val qrBitmap = Utils.generateQRCode(orderCode, 500)
         if (qrBitmap != null) {
-            val ivQr = android.widget.ImageView(this).apply {
+            val ivQr = ImageView(this).apply {
                 this.setImageBitmap(qrBitmap)
-                this.layoutParams = android.widget.LinearLayout.LayoutParams(500, 500).apply {
-                    this.gravity = android.view.Gravity.CENTER
+                this.layoutParams = LinearLayout.LayoutParams(500, 500).apply {
+                    this.gravity = Gravity.CENTER
                     this.setMargins(0, 20, 0, 20)
                 }
             }
@@ -237,23 +248,23 @@ class CartActivity : AppCompatActivity() {
 
         fun showRating() {
             llOptions.removeAllViews()
-            addMessage("¿Qué tal fue tu experiencia hoy?", true)
-            val starsLayout = android.widget.LinearLayout(this).apply {
-                this.orientation = android.widget.LinearLayout.HORIZONTAL
-                this.gravity = android.view.Gravity.CENTER
+            addMessage(getString(R.string.experience_rating), true)
+            val starsLayout = LinearLayout(this).apply {
+                this.orientation = LinearLayout.HORIZONTAL
+                this.gravity = Gravity.CENTER
             }
             for (i in 1..5) {
                 val btnStar = android.widget.Button(this).apply {
                     this.text = "⭐"
                     this.textSize = 20f
                     this.background = null
-                    this.layoutParams = android.widget.LinearLayout.LayoutParams(
-                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
-                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+                    this.layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
                     )
                     this.setOnClickListener {
                         llOptions.removeAllViews()
-                        addMessage("¡Gracias por calificar con $i estrellas! ❤️", true)
+                        addMessage(getString(R.string.rating_thanks, i), true)
                         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                             dialog.dismiss()
                             finish()
@@ -280,17 +291,17 @@ class CartActivity : AppCompatActivity() {
 
     private fun showChatbot(onComplete: (Int, String) -> Unit) {
         val dialogView = layoutInflater.inflate(R.layout.dialog_chatbot, null)
-        val llChat = dialogView.findViewById<android.widget.LinearLayout>(R.id.llChatContainer)
-        val llOptions = dialogView.findViewById<android.widget.LinearLayout>(R.id.llOptionsContainer)
+        val llChat = dialogView.findViewById<LinearLayout>(R.id.llChatContainer)
+        val llOptions = dialogView.findViewById<LinearLayout>(R.id.llOptionsContainer)
         val svChat = dialogView.findViewById<androidx.core.widget.NestedScrollView>(R.id.svChat)
 
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(this, android.R.style.Theme_Material_Light_NoActionBar_Fullscreen)
+        val dialog = AlertDialog.Builder(this, android.R.style.Theme_Material_Light_NoActionBar_Fullscreen)
             .setView(dialogView)
             .setCancelable(false)
             .create()
 
         fun scrollToBottom() {
-            svChat.post { svChat.fullScroll(android.view.View.FOCUS_DOWN) }
+            svChat.post { svChat.fullScroll(View.FOCUS_DOWN) }
         }
 
         fun addMessage(text: String, isBot: Boolean, delay: Long = 0) {
@@ -298,15 +309,15 @@ class CartActivity : AppCompatActivity() {
                 val tv = TextView(this).apply {
                     this.text = text
                     this.setPadding(40, 24, 40, 24)
-                    this.layoutParams = android.widget.LinearLayout.LayoutParams(
-                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
-                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+                    this.layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
                     ).apply {
                         this.setMargins(if (isBot) 0 else 80, 16, if (isBot) 80 else 0, 16)
-                        this.gravity = if (isBot) android.view.Gravity.START else android.view.Gravity.END
+                        this.gravity = if (isBot) Gravity.START else Gravity.END
                     }
                     this.setBackgroundResource(if (isBot) R.drawable.bg_message_received else R.drawable.bg_message_sent)
-                    this.setTextColor(if (isBot) android.graphics.Color.BLACK else android.graphics.Color.WHITE)
+                    this.setTextColor(if (isBot) Color.BLACK else Color.WHITE)
                     this.textSize = 16f
                     this.elevation = 4f
                     this.setLineSpacing(0f, 1.1f)
@@ -321,10 +332,10 @@ class CartActivity : AppCompatActivity() {
 
             if (delay > 0 && isBot) {
                 val typingTv = TextView(this).apply {
-                    this.text = "Asistente escribiendo..."
+                    this.text = getString(R.string.asistente_escribiendo)
                     this.textSize = 13f
                     this.setPadding(40, 0, 0, 0)
-                    this.setTextColor(android.graphics.Color.GRAY)
+                    this.setTextColor(Color.GRAY)
                     this.setTypeface(null, android.graphics.Typeface.ITALIC)
                 }
                 llChat.addView(typingTv)
@@ -351,15 +362,15 @@ class CartActivity : AppCompatActivity() {
                         this.textSize = 15f
                         this.cornerRadius = (24 * resources.displayMetrics.density).toInt()
                         this.setPadding(32, 24, 32, 24)
-                        this.layoutParams = android.widget.LinearLayout.LayoutParams(
-                            android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
-                            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+                        this.layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
                         ).apply { setMargins(0, 12, 0, 12) }
                         
-                        this.setBackgroundColor(android.graphics.Color.WHITE)
-                        this.setTextColor(android.graphics.Color.parseColor("#1A456F"))
+                        this.setBackgroundColor(Color.WHITE)
+                        this.setTextColor("#1A456F".toColorInt())
                         this.strokeWidth = (1.5 * resources.displayMetrics.density).toInt()
-                        this.strokeColor = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#1A456F"))
+                        this.strokeColor = android.content.res.ColorStateList.valueOf("#1A456F".toColorInt())
                         this.stateListAnimator = null // Remove shadow for cleaner look
                         
                         // Entrance animation for buttons
@@ -383,23 +394,23 @@ class CartActivity : AppCompatActivity() {
             llOptions.removeAllViews()
             finalCustomization = customizations.joinToString(", ")
             val summary = if (finalExtraCharge > 0) 
-                "¡Excelente! He configurado tus ajustes: $finalCustomization.\n\nEl total se actualizará con un cargo de ${Utils.formatPrice(finalExtraCharge)} por el trabajo adicional."
-                else "Entendido. Procesaremos tu pedido con las medidas estándar de fábrica."
+                getString(R.string.chatbot_summary_extra, finalCustomization, Utils.formatPrice(finalExtraCharge))
+                else getString(R.string.chatbot_summary_standard)
             
             addMessage(summary, true, 1200)
-            addMessage("¿Deseas finalizar el pedido ahora?", true, 2000)
+            addMessage(getString(R.string.finalize_order_question), true, 2000)
             
             android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                 val btnConfirm = MaterialButton(this).apply {
-                    this.text = "✅ SÍ, FINALIZAR PEDIDO"
+                    this.setText(R.string.confirm_finalize_order)
                     this.textSize = 17f
                     this.setPadding(0, 32, 0, 32)
                     this.cornerRadius = (16 * resources.displayMetrics.density).toInt()
-                    this.setBackgroundColor(android.graphics.Color.parseColor("#28A745"))
-                    this.setTextColor(android.graphics.Color.WHITE)
-                    this.layoutParams = android.widget.LinearLayout.LayoutParams(
-                        android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
-                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+                    this.setBackgroundColor("#28A745".toColorInt())
+                    this.setTextColor(Color.WHITE)
+                    this.layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
                     )
                     this.setOnClickListener {
                         dialog.dismiss()
@@ -559,21 +570,21 @@ class CartActivity : AppCompatActivity() {
         val points = PointsManager.calculateTotalPoints(CartManager.getItems())
         tvPointsInfo.text = getString(R.string.points_gain_info, points)
 
-        val emptyView = findViewById<android.view.View>(R.id.llEmptyCart)
-        val rvCart = findViewById<android.view.View>(R.id.rvCart)
-        val cardCheckout = findViewById<android.view.View>(R.id.cardCheckout)
-        val cardLoyalty = findViewById<android.view.View>(R.id.cardLoyalty)
+        val emptyView = findViewById<View>(R.id.llEmptyCart)
+        val rvCart = findViewById<View>(R.id.rvCart)
+        val cardCheckout = findViewById<View>(R.id.cardCheckout)
+        val cardLoyalty = findViewById<View>(R.id.cardLoyalty)
 
         if (CartManager.getItems().isEmpty()) {
-            emptyView?.visibility = android.view.View.VISIBLE
-            rvCart?.visibility = android.view.View.GONE
-            cardCheckout?.visibility = android.view.View.GONE
-            cardLoyalty?.visibility = android.view.View.GONE
+            emptyView?.visibility = View.VISIBLE
+            rvCart?.visibility = View.GONE
+            cardCheckout?.visibility = View.GONE
+            cardLoyalty?.visibility = View.GONE
         } else {
-            emptyView?.visibility = android.view.View.GONE
-            rvCart?.visibility = android.view.View.VISIBLE
-            cardCheckout?.visibility = android.view.View.VISIBLE
-            cardLoyalty?.visibility = android.view.View.VISIBLE
+            emptyView?.visibility = View.GONE
+            rvCart?.visibility = View.VISIBLE
+            cardCheckout?.visibility = View.VISIBLE
+            cardLoyalty?.visibility = View.VISIBLE
         }
     }
 }
