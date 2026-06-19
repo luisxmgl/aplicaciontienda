@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/chaticonoa"
+        android:title="Mensajes" />
+    <item
         android:id="@+id/nav_my_orders"
         android:icon="@drawable/mispedidos"
-        android:title="@string/nav_my_orders" />
+        android:title="Pedidos" />
     <item
         android:id="@+id/nav_tracking"
         android:icon="@drawable/seguimiento"
-        android:title="@string/nav_tracking" />
+        android:title="Gestión" />
 </menu>

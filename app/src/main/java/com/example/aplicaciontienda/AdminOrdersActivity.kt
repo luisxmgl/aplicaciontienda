@@ -110,6 +110,7 @@ class AdminOrdersActivity : AppCompatActivity() {
             val rbStatus1: RadioButton? = view.findViewById(R.id.rbStatus1)
             val rbStatus2: RadioButton? = view.findViewById(R.id.rbStatus2)
             val rbStatus3: RadioButton? = view.findViewById(R.id.rbStatus3)
+            val rbStatus4: RadioButton? = view.findViewById(R.id.rbStatus4)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -139,6 +140,7 @@ class AdminOrdersActivity : AppCompatActivity() {
                     1 -> holder.rbStatus1?.isChecked = true
                     2 -> holder.rbStatus2?.isChecked = true
                     3 -> holder.rbStatus3?.isChecked = true
+                    4 -> holder.rbStatus4?.isChecked = true
                     else -> rgStatus.clearCheck()
                 }
 
@@ -147,6 +149,7 @@ class AdminOrdersActivity : AppCompatActivity() {
                         R.id.rbStatus1 -> 1
                         R.id.rbStatus2 -> 2
                         R.id.rbStatus3 -> 3
+                        R.id.rbStatus4 -> 4
                         else -> order.estado
                     }
                     if (newStatus != order.estado) {

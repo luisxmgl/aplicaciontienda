@@ -66,6 +66,8 @@ class TrackingActivity : AppCompatActivity() {
         val imgStep1 = findViewById<ImageView>(R.id.imgStep1)
         val imgStep2 = findViewById<ImageView>(R.id.imgStep2)
         val imgStep3 = findViewById<ImageView>(R.id.imgStep3)
+        val imgStep4 = findViewById<ImageView>(R.id.imgStep4)
+        val lineStep3 = findViewById<View>(R.id.lineStep3)
 
         cardStatus?.visibility = View.GONE
 
@@ -90,6 +92,8 @@ class TrackingActivity : AppCompatActivity() {
                             imgStep1?.setImageResource(android.R.drawable.radiobutton_off_background)
                             imgStep2?.setImageResource(android.R.drawable.radiobutton_off_background)
                             imgStep3?.setImageResource(android.R.drawable.radiobutton_off_background)
+                            imgStep4?.setImageResource(android.R.drawable.radiobutton_off_background)
+                            lineStep3?.setBackgroundColor(android.graphics.Color.parseColor("#DDDDDD"))
 
                             when (pedido.estado) {
                                 1 -> {
@@ -106,6 +110,14 @@ class TrackingActivity : AppCompatActivity() {
                                     imgStep2?.setImageResource(android.R.drawable.checkbox_on_background)
                                     imgStep3?.setImageResource(android.R.drawable.checkbox_on_background)
                                     tvNote?.text = "¡Tu pedido está LISTO! Puedes pasar a la tienda a retirarlo con la cajera."
+                                }
+                                4 -> {
+                                    imgStep1?.setImageResource(android.R.drawable.checkbox_on_background)
+                                    imgStep2?.setImageResource(android.R.drawable.checkbox_on_background)
+                                    imgStep3?.setImageResource(android.R.drawable.checkbox_on_background)
+                                    imgStep4?.setImageResource(android.R.drawable.checkbox_on_background)
+                                    lineStep3?.setBackgroundColor(android.graphics.Color.parseColor("#28A745"))
+                                    tvNote?.text = "Tu pedido ha sido entregado. ¡Gracias por confiar en Confecciones Villa Acero!"
                                 }
                                 else -> {
                                     tvNote?.text = "Consulta en tienda por el estado de tu pedido."

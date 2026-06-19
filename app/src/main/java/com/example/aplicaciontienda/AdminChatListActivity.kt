@@ -8,11 +8,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
+
 class AdminChatListActivity : AppCompatActivity() {
 
-    private lateinit var lvChats: ListView
-    private val chatList = mutableListOf<String>()
-    private lateinit var adapter: ArrayAdapter<String>
+    private lateinit var rvChats: RecyclerView
+    private val chatList = mutableListOf<ChatSummary>()
+    private lateinit var adapter: AdminChatAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +31,15 @@ class AdminChatListActivity : AppCompatActivity() {
             }
         }
 
-        lvChats = findViewById(R.id.lvChats)
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, chatList)
-        lvChats.adapter = adapter
+        rvChats = findViewById(R.id.rvChats)
+        rvChats.layoutManager = LinearLayoutManager(this)
+        adapter = AdminChatAdapter(chatList) { chatId ->
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("ES_ADMIN", true)
+            intent.putExtra("TARGET_ID", chatId)
+            startActivity(intent)
+        }
+        rvChats.adapter = adapter
 
         try {
             val dbRef = FirebaseDatabase.getInstance().getReference("chats")
@@ -37,8 +47,25 @@ class AdminChatListActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     chatList.clear()
                     for (postSnapshot in snapshot.children) {
-                        postSnapshot.key?.let { chatList.add(it) }
+                        val chatId = postSnapshot.key ?: continue
+                        var lastMsgText = "Imagen"
+                        var lastTimestamp = 0L
+                        var hasUnread = false
+                        
+                        for (msgSnap in postSnapshot.children) {
+                            val msg = msgSnap.getValue(Message::class.java) ?: continue
+                            if (msg.timestamp > lastTimestamp) {
+                                lastTimestamp = msg.timestamp
+                                lastMsgText = msg.text.ifEmpty { "Imagen" }
+                            }
+                            if (msg.senderId != "admin" && !msg.read) {
+                                hasUnread = true
+                            }
+                        }
+                        
+                        chatList.add(ChatSummary(chatId, lastMsgText, hasUnread, lastTimestamp))
                     }
+                    chatList.sortByDescending { it.timestamp }
                     adapter.notifyDataSetChanged()
                 }
                 override fun onCancelled(error: DatabaseError) {
@@ -48,15 +75,6 @@ class AdminChatListActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
             Toast.makeText(this, "Firebase no configurado. Falta google-services.json", Toast.LENGTH_LONG).show()
-        }
-
-        lvChats.setOnItemClickListener { _, _, position, _ ->
-            if (position < chatList.size) {
-                val intent = Intent(this, ChatActivity::class.java)
-                intent.putExtra("ES_ADMIN", true)
-                intent.putExtra("TARGET_ID", chatList[position])
-                startActivity(intent)
-            }
         }
     }
 }

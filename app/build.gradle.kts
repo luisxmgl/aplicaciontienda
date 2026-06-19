@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    // alias(libs.plugins.google.services) // Comentado temporalmente por falta de google-services.json
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -43,8 +43,11 @@ android {
     }
 }
 
+
+
 dependencies {
     implementation(platform(libs.firebase.bom))
+    implementation("com.google.firebase:firebase-analytics")
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.auth)

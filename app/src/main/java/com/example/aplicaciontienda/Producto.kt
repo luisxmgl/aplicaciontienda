@@ -23,14 +23,14 @@ data class Familia(
 
 data class Producto(
     val idproducto: String,
-    val codproducto: String,
     val producto: String,
-    val codfamilia: String,
-    val nomfamilia: String,
     val precioxpublico: String,
+    val existencia: String,
+    val codproducto: String? = null,
+    val codfamilia: String? = null,
+    val nomfamilia: String? = null,
     val precioxmayor: String? = null,
     val precioxmenor: String? = null,
-    val existencia: String,
     val codigobarra: String? = null,
     val ivaproducto: String? = null,
     val estado: String? = null
@@ -41,15 +41,18 @@ data class Producto(
     val nombre: String get() = producto.trim()
 
     val talla: String get() {
-        val index = producto.indexOf(" TALLA ", ignoreCase = true)
-        return if (index != -1) {
-            producto.substring(index + 7).trim()
-        } else {
-            "N/A"
-        }
+        val nameUpper = nombre.uppercase()
+        val index = nameUpper.indexOf(" TALLA ")
+        if (index != -1) return nombre.substring(index + 7).trim()
+        
+        // También buscar " T-" que es común
+        val indexT = nameUpper.indexOf(" T-")
+        if (indexT != -1) return nombre.substring(indexT + 3).trim()
+
+        return "N/A"
     }
 
-    val colegio: String get() = nomfamilia.trim()
+    val colegio: String get() = nomfamilia?.trim() ?: ""
 
     val puntosCost: Int get() {
         val multiplier = when {

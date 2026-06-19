@@ -46,6 +46,10 @@ class TiendaActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.btnChat).setOnClickListener {
+            startActivity(Intent(this, ChatActivity::class.java))
+        }
+
+        findViewById<ImageButton>(R.id.btnWhatsApp).setOnClickListener {
             Utils.openWhatsApp(this, "+56920680021", "Hola! Quería consultar sobre los uniformes de $colegioNombre.")
         }
 

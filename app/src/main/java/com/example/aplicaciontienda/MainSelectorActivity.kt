@@ -63,12 +63,52 @@ class MainSelectorActivity : AppCompatActivity() {
         configurarBusqueda()
         configurarFiltrosComuna()
         configurarNavegacion()
+        escucharMensajesNuevos()
 
         findViewById<View>(R.id.btnBackStart)?.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
+        }
+    }
+
+    private fun escucharMensajesNuevos() {
+        if (!esAdmin) return
+        
+        val dbRef = com.google.firebase.database.FirebaseDatabase.getInstance().getReference("chats")
+        dbRef.addValueEventListener(object : com.google.firebase.database.ValueEventListener {
+            override fun onDataChange(snapshot: com.google.firebase.database.DataSnapshot) {
+                var totalChatsConPendientes = 0
+                for (chatSnap in snapshot.children) {
+                    var tienePendientes = false
+                    for (msgSnap in chatSnap.children) {
+                        val msg = msgSnap.getValue(Message::class.java)
+                        if (msg != null && msg.senderId != "admin" && !msg.read) {
+                            tienePendientes = true
+                            break
+                        }
+                    }
+                    if (tienePendientes) totalChatsConPendientes++
+                }
+                actualizarBadge(totalChatsConPendientes)
+            }
+            override fun onCancelled(error: com.google.firebase.database.DatabaseError) {}
+        })
+    }
+
+    private fun actualizarBadge(count: Int) {
+        val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)
+        if (bottomNav == null) return
+        
+        val badge = bottomNav.getOrCreateBadge(R.id.nav_chat) 
+        if (count > 0) {
+            badge.isVisible = true
+            badge.number = count
+            badge.backgroundColor = android.graphics.Color.RED
+            badge.badgeTextColor = android.graphics.Color.WHITE
+        } else {
+            badge.isVisible = false
         }
     }
 
@@ -82,19 +122,23 @@ class MainSelectorActivity : AppCompatActivity() {
         // Si es admin, cambiamos el título del menú de seguimiento para que sea claro
         if (esAdmin) {
             val menu = bottomNav.menu
-            val trackingItem = menu.findItem(R.id.nav_tracking)
-            trackingItem?.title = "Gestión"
-            
-            val ordersItem = menu.findItem(R.id.nav_my_orders)
-            ordersItem?.title = "Pedidos"
+            menu.findItem(R.id.nav_chat)?.title = "Mensajes"
+            menu.findItem(R.id.nav_my_orders)?.title = "Pedidos"
+            menu.findItem(R.id.nav_tracking)?.title = "Gestión"
         }
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_my_orders -> {
+                R.id.nav_chat -> {
                     if (esAdmin) {
                         startActivity(Intent(this, AdminChatListActivity::class.java))
                     } else {
+                        startActivity(Intent(this, ChatActivity::class.java))
+                    }
+                    true
+                }
+                R.id.nav_my_orders -> {
+                    if (!esAdmin) {
                         startActivity(Intent(this, MyOrdersActivity::class.java))
                     }
                     true
@@ -157,7 +201,6 @@ class MainSelectorActivity : AppCompatActivity() {
                 val data = repository.getCatalogData()
                 todosLosColegios.clear()
 
-
                 data.forEach { ui ->
                     todosLosColegios.add(Colegio(
                         id = ui.id,
@@ -169,12 +212,46 @@ class MainSelectorActivity : AppCompatActivity() {
                     ))
                 }
                 
+                configurarChipsDinamicos()
                 aplicarFiltros()
 
-                findViewById<TextView>(R.id.tvCountHeader).text = "Selecciona tu colegio"
+                findViewById<TextView>(R.id.tvCountHeader).text = "${todosLosColegios.size} colegios disponibles en la zona"
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+        }
+    }
+
+    private fun configurarChipsDinamicos() {
+        val cgComunas = findViewById<ChipGroup>(R.id.cgComunas)
+        cgComunas.removeAllViews()
+
+        val comunas = todosLosColegios.map { it.comuna }.distinct().sorted()
+        
+        val chipTodas = Chip(this)
+        chipTodas.text = "Todas"
+        chipTodas.isCheckable = true
+        chipTodas.isChecked = true
+        chipTodas.id = View.generateViewId()
+        cgComunas.addView(chipTodas)
+
+        comunas.forEach { comuna ->
+            val chip = Chip(this)
+            chip.text = comuna
+            chip.isCheckable = true
+            chip.id = View.generateViewId()
+            cgComunas.addView(chip)
+        }
+
+        cgComunas.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (checkedIds.isEmpty()) {
+                selectedComuna = "Todas"
+            } else {
+                val selectedId = checkedIds.first()
+                val chip = findViewById<Chip>(selectedId)
+                selectedComuna = chip.text.toString()
+            }
+            aplicarFiltros()
         }
     }
 }

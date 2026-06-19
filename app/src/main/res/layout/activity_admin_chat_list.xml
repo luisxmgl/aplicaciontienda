@@ -20,11 +20,11 @@
             app:title="Mensajes Recibidos" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ListView
-        android:id="@+id/lvChats"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"
-        android:dividerHeight="0dp" />
+        android:paddingTop="8dp"
+        android:clipToPadding="false" />
 
 </LinearLayout>

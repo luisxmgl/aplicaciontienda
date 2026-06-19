@@ -58,6 +58,15 @@
             app:tint="@null" />
 
         <ImageButton
+            android:id="@+id/btnWhatsApp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/whatsappicono"
+            app:tint="@null" />
+
+        <ImageButton
             android:id="@+id/btnChat"
             android:layout_width="48dp"
             android:layout_height="48dp"

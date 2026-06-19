@@ -101,7 +101,13 @@ class ChatActivity : AppCompatActivity() {
                 messages.clear()
                 for (postSnapshot in snapshot.children) {
                     val message = postSnapshot.getValue(Message::class.java)
-                    if (message != null) messages.add(message)
+                    if (message != null) {
+                        messages.add(message)
+                        // Si soy admin y el mensaje es de un invitado y no está leído, marcar como leído
+                        if (esAdmin && message.senderId != "admin" && !message.read) {
+                            postSnapshot.ref.child("read").setValue(true)
+                        }
+                    }
                 }
                 adapter.notifyDataSetChanged()
                 rvChat.scrollToPosition(messages.size - 1)
