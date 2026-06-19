@@ -18,10 +18,13 @@ class AdminChatListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_chat_list)
 
-        supportActionBar?.title = "Mensajes Recibidos"
-
-        findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarAdmin).setNavigationOnClickListener {
-            finish()
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarAdmin)
+        if (toolbar != null) {
+            setSupportActionBar(toolbar)
+            supportActionBar?.title = "Mensajes Recibidos"
+            toolbar.setNavigationOnClickListener {
+                finish()
+            }
         }
 
         lvChats = findViewById(R.id.lvChats)
@@ -38,17 +41,22 @@ class AdminChatListActivity : AppCompatActivity() {
                     }
                     adapter.notifyDataSetChanged()
                 }
-                override fun onCancelled(error: DatabaseError) {}
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(this@AdminChatListActivity, "Error Firebase: ${error.message}", Toast.LENGTH_SHORT).show()
+                }
             })
         } catch (e: Exception) {
+            e.printStackTrace()
             Toast.makeText(this, "Firebase no configurado. Falta google-services.json", Toast.LENGTH_LONG).show()
         }
 
         lvChats.setOnItemClickListener { _, _, position, _ ->
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("ES_ADMIN", true)
-            intent.putExtra("TARGET_ID", chatList[position])
-            startActivity(intent)
+            if (position < chatList.size) {
+                val intent = Intent(this, ChatActivity::class.java)
+                intent.putExtra("ES_ADMIN", true)
+                intent.putExtra("TARGET_ID", chatList[position])
+                startActivity(intent)
+            }
         }
     }
 }

@@ -63,19 +63,46 @@ class MainSelectorActivity : AppCompatActivity() {
         configurarBusqueda()
         configurarFiltrosComuna()
         configurarNavegacion()
+
+        findViewById<View>(R.id.btnBackStart)?.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun configurarNavegacion() {
         val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)
+        if (bottomNav == null) return
+
+        // IMPORTANTE: Desactivar el tinte automático para que los iconos PNG se vean con sus colores originales
+        bottomNav.itemIconTintList = null
+
+        // Si es admin, cambiamos el título del menú de seguimiento para que sea claro
+        if (esAdmin) {
+            val menu = bottomNav.menu
+            val trackingItem = menu.findItem(R.id.nav_tracking)
+            trackingItem?.title = "Gestión"
+            
+            val ordersItem = menu.findItem(R.id.nav_my_orders)
+            ordersItem?.title = "Pedidos"
+        }
+
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_my_orders -> {
-                    startActivity(Intent(this, MyOrdersActivity::class.java))
+                    if (esAdmin) {
+                        startActivity(Intent(this, AdminChatListActivity::class.java))
+                    } else {
+                        startActivity(Intent(this, MyOrdersActivity::class.java))
+                    }
                     true
                 }
                 R.id.nav_tracking -> {
                     if (esAdmin) {
-                        startActivity(Intent(this, AdminOrdersActivity::class.java))
+                        val intent = Intent(this, AdminOrdersActivity::class.java)
+                        startActivity(intent)
                     } else {
                         startActivity(Intent(this, TrackingActivity::class.java))
                     }

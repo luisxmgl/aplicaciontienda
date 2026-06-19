@@ -11,29 +11,40 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AdminOrdersActivity : AppCompatActivity() {
 
     private lateinit var adapter: AdminOrdersAdapter
     private val ordersList = mutableListOf<Pedido>()
+    private var databaseRef: DatabaseReference? = null
+    private var eventListener: ValueEventListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin_orders)
+        
+        try {
+            setContentView(R.layout.activity_admin_orders)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            finish()
+            return
+        }
 
         val rvOrders = findViewById<RecyclerView>(R.id.rvAdminOrders)
-        rvOrders.layoutManager = LinearLayoutManager(this)
-        adapter = AdminOrdersAdapter(ordersList)
-        rvOrders.adapter = adapter
+        if (rvOrders != null) {
+            rvOrders.layoutManager = LinearLayoutManager(this)
+            adapter = AdminOrdersAdapter(ordersList)
+            rvOrders.adapter = adapter
+        }
 
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarAdmin)
         if (toolbar != null) {
             setSupportActionBar(toolbar)
             supportActionBar?.title = "Gestión de Pedidos"
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
         }
 
         findViewById<View>(R.id.btnLogout)?.setOnClickListener {
@@ -44,24 +55,48 @@ class AdminOrdersActivity : AppCompatActivity() {
     }
 
     private fun fetchOrders() {
-        val database = FirebaseDatabase.getInstance().getReference("pedidos")
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                ordersList.clear()
-                for (postSnapshot in snapshot.children) {
-                    val pedido = postSnapshot.getValue(Pedido::class.java)
-                    if (pedido != null) {
-                        ordersList.add(pedido)
+        try {
+            val database = FirebaseDatabase.getInstance()
+            databaseRef = database.getReference("pedidos")
+            
+            eventListener = object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    ordersList.clear()
+                    for (postSnapshot in snapshot.children) {
+                        try {
+                            val pedido = postSnapshot.getValue(Pedido::class.java)
+                            if (pedido != null) {
+                                ordersList.add(pedido)
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                    ordersList.sortByDescending { it.fecha }
+                    if (::adapter.isInitialized) {
+                        adapter.notifyDataSetChanged()
                     }
                 }
-                ordersList.sortByDescending { it.fecha }
-                adapter.notifyDataSetChanged()
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@AdminOrdersActivity, "Error al cargar pedidos", Toast.LENGTH_SHORT).show()
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(this@AdminOrdersActivity, "Error Firebase: ${error.message}", Toast.LENGTH_SHORT).show()
+                }
             }
-        })
+            databaseRef?.addValueEventListener(eventListener!!)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            // Si llegamos aquí, es probablemente porque Firebase no está inicializado (falta google-services.json)
+            Toast.makeText(this, "Firebase no configurado correctamente. Por favor, asegúrese de agregar el archivo google-services.json", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        try {
+            eventListener?.let { databaseRef?.removeEventListener(it) }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     inner class AdminOrdersAdapter(private val orders: List<Pedido>) : RecyclerView.Adapter<AdminOrdersAdapter.ViewHolder>() {
@@ -83,15 +118,16 @@ class AdminOrdersActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val order = orders[position]
+            val order = orders.getOrNull(position) ?: return
+            
             holder.tvCode?.text = "Pedido #${order.codigoRetiro}"
             
-            val sdf = java.text.SimpleDateFormat("dd/MM HH:mm", java.util.Locale.getDefault())
-            holder.tvDate?.text = sdf.format(java.util.Date(order.fecha))
+            val sdf = SimpleDateFormat("dd/MM HH:mm", Locale.getDefault())
+            holder.tvDate?.text = sdf.format(Date(order.fecha))
             
             val sb = StringBuilder()
             order.items.forEach { sb.append("${it.cantidad}x ${it.nombre} (${it.talla})\n") }
-            holder.tvDetails?.text = sb.toString()
+            holder.tvDetails?.text = sb.toString().trim()
             
             val customizationText = if (order.customization.isEmpty()) "Ninguna" else order.customization
             holder.tvCustom?.text = "Personalización: $customizationText"
@@ -114,13 +150,14 @@ class AdminOrdersActivity : AppCompatActivity() {
                         else -> order.estado
                     }
                     if (newStatus != order.estado) {
-                        FirebaseDatabase.getInstance().getReference("pedidos")
-                            .child(order.codigoRetiro)
-                            .child("estado")
-                            .setValue(newStatus)
-                            .addOnFailureListener {
-                                Toast.makeText(holder.itemView.context, "Error al actualizar estado", Toast.LENGTH_SHORT).show()
-                            }
+                        try {
+                            FirebaseDatabase.getInstance().getReference("pedidos")
+                                .child(order.codigoRetiro)
+                                .child("estado")
+                                .setValue(newStatus)
+                        } catch (e: Exception) {
+                            Toast.makeText(holder.itemView.context, "Error al actualizar estado en Firebase", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }
