@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA"
+    android:background="@color/background_paper"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="@color/background_paper"
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -18,7 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:title="Mi Carrito">
+            app:navigationIconTint="@color/primary_ink"
+            app:title="@string/cart_title"
+            app:titleTextColor="@color/primary_ink">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -29,20 +31,12 @@
                 android:layout_marginEnd="8dp">
 
                 <ImageButton
-                    android:id="@+id/btnThemeToggle"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@android:drawable/ic_menu_day"
-                    android:contentDescription="@string/change_theme" />
-
-                <ImageButton
                     android:id="@+id/btnClearCart"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/trashicon"
+                    app:tint="@color/accent_thread"
                     android:contentDescription="Vaciar Carrito" />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
@@ -58,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="200dp">
+            android:paddingBottom="250dp">
 
             <!-- Loyalty Card -->
             <com.google.android.material.card.MaterialCardView
@@ -67,8 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/brand_azul">
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/primary_ink">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -82,7 +76,7 @@
                         android:layout_height="48dp"
                         app:cardCornerRadius="24dp"
                         app:cardElevation="0dp"
-                        app:cardBackgroundColor="#33FFFFFF">
+                        app:cardBackgroundColor="#22FFFFFF">
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -103,7 +97,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Villa Puntos"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -111,7 +105,7 @@
                             android:id="@+id/tvPointsInfo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="¡Suma puntos con esta compra!"
+                            android:text="@string/points_gain_info"
                             android:textColor="#CCFFFFFF"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -139,15 +133,15 @@
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:src="@android:drawable/ic_menu_search"
-                    app:tint="#D1D1D1"
+                    app:tint="@color/border_pale_tan"
                     android:contentDescription="Carrito Vacío" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Tu carrito está vacío"
-                    android:textColor="#1A1A1A"
+                    android:text="@string/cart_empty"
+                    android:textColor="@color/neutral_charcoal"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -156,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="¡Añade tus uniformes favoritos y personalízalos a tu medida!"
-                    android:textColor="#666666"
+                    android:textColor="@color/neutral_muted_brown"
                     android:textSize="15sp"
                     android:gravity="center" />
 
@@ -180,8 +174,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:cardElevation="24dp"
+        app:cardElevation="16dp"
         app:cardCornerRadius="32dp"
+        app:cardBackgroundColor="@color/background_paper_raised"
+        app:strokeColor="@color/border_pale_tan"
+        app:strokeWidth="1dp"
         android:layout_marginBottom="-32dp">
 
         <LinearLayout
@@ -189,8 +186,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="24dp"
-            android:paddingBottom="56dp"
-            android:background="#FFFFFF">
+            android:paddingBottom="56dp">
 
             <!-- Price Summary Breakdown -->
             <LinearLayout
@@ -207,42 +203,22 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Subtotal"
-                        android:textColor="#888888"
+                        android:text="@string/cart_subtotal"
+                        android:textColor="@color/neutral_muted_brown"
                         android:textSize="14sp" />
                     <TextView
                         android:id="@+id/tvSubtotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="$0"
-                        android:textColor="#444444"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Ajustes (Est.)"
-                        android:textColor="#888888"
-                        android:textSize="14sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0"
-                        android:textColor="#28A745"
+                        android:textColor="@color/neutral_charcoal"
                         android:textSize="14sp" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#EEEEEE"
+                    android:background="@color/border_pale_tan"
                     android:layout_marginVertical="12dp" />
 
                 <LinearLayout
@@ -260,8 +236,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Total Final"
-                            android:textColor="#1A1A1A"
+                            android:text="@string/cart_total"
+                            android:textColor="@color/neutral_charcoal"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -270,7 +246,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$0"
-                            android:textColor="@color/brand_azul"
+                            android:textColor="@color/primary_ink"
                             android:textSize="26sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -280,7 +256,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ayuda"
-                        android:textColor="@color/brand_azul"
+                        android:textColor="@color/primary_ink"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:padding="12dp"
@@ -299,9 +275,9 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    android:text="Proceder al Pago"
+                    android:text="Pagar con WhatsApp"
                     app:cornerRadius="18dp"
-                    app:backgroundTint="#25D366"
+                    app:backgroundTint="@color/success_green"
                     android:textAllCaps="false"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -311,13 +287,15 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     app:cornerRadius="18dp"
-                    app:backgroundTint="#F0F2F5"
+                    app:backgroundTint="@color/white"
                     app:icon="@drawable/logo_webpay"
                     app:iconSize="32dp"
                     app:iconTint="@null"
                     app:iconGravity="textStart"
                     app:iconPadding="0dp"
-                    android:padding="0dp" />
+                    android:padding="0dp"
+                    app:strokeColor="@color/border_pale_tan"
+                    app:strokeWidth="1dp" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

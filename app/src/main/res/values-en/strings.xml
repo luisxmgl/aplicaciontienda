@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Villa Acero</string>
+    <string name="price_format">$%1$d</string>
+    <string name="pay_with_webpay">Pay with Webpay</string>
+    <string name="consult_doubts">Consult about doubts</string>
+    <string name="send_via_whatsapp">Send order via WhatsApp</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_my_orders">My Orders</string>
+    <string name="nav_tracking">Tracking</string>
+    <string name="nav_whatsapp">WhatsApp</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_management">Management</string>
+    <string name="nav_caja">Register</string>
+    <string name="nav_instagram">View Instagram</string>
+    <string name="nav_cart">Cart</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_chat">Chat</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_empty">You have no new notifications.</string>
+    <string name="notifications_mark_all_read">Mark all as read</string>
+    <string name="notifications_chat_new_message">New message from %1$s</string>
+    <string name="notifications_chat_new_message_admin">Villa Acero replied to you</string>
+    <string name="notifications_order_update">Your order %1$s is now: %2$s</string>
+    <string name="notifications_new_order_admin">New order received: %1$s</string>
+
+    <!-- Home -->
+    <string name="home_tag">SCHOOL UNIFORMS</string>
+    <string name="home_title_line1">Villa Acero</string>
+    <string name="home_title_line2">Confections</string>
+    <string name="home_subtitle">Custom uniforms for schools in Hualpén, Concepción, Talcahuano, and Chiguayante.</string>
+    <string name="home_guest_button">Enter as Guest</string>
+    <string name="home_admin_button">Admin Access</string>
+    <string name="admin_access">Admin Access</string>
+
+    <!-- School Selector -->
+    <string name="school_selector_title_admin">Admin Panel</string>
+    <string name="school_selector_title_guest">Select your school</string>
+    <string name="school_selector_search_placeholder">Search school or commune&#8230;</string>
+    <string name="school_selector_no_results">No schools found with that filter.</string>
+
+    <!-- Store & Products -->
+    <string name="store_no_products">No products in this category.</string>
+    <string name="product_detail_loading">Loading&#8230;</string>
+    <string name="product_detail_add_to_cart">Add to cart</string>
+    <string name="product_detail_whatsapp_query">Hello! I would like to ask about this product: %1$s, size %2$s, price %3$s.</string>
+
+    <!-- Cart -->
+    <string name="cart_title">Your Cart</string>
+    <string name="cart_empty">Your cart is empty.</string>
+    <string name="cart_subtotal">Subtotal</string>
+    <string name="cart_total">Total</string>
+    <string name="cart_checkout_webpay">Pay with Webpay</string>
+    <string name="cart_change_note">Note: I have 3 business days for any change of mind about the adjustments.</string>
+
+    <!-- Tracking -->
+    <string name="tracking_title">Tracking</string>
+    <string name="tracking_placeholder">Pickup code</string>
+    <string name="tracking_searching">Searching&#8230;</string>
+    <string name="tracking_order_label">Order #%1$s</string>
+    <string name="tracking_status_ready">Your order is READY! You can stop by the store to pick it up at the register.</string>
+
+    <!-- Chat -->
+    <string name="chat_input_placeholder">Type a message&#8230;</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_sender_store">Villa Acero</string>
+</resources>

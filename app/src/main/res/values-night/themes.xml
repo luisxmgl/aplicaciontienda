@@ -1,23 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Aplicaciontienda" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Aplicaciontienda" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/brand_azul</item>
-        <item name="colorPrimaryVariant">@color/brand_azul</item>
+        <item name="colorPrimary">@color/primary_ink</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/verde_whatsapp</item>
-        <item name="colorSecondaryVariant">@color/verde_whatsapp</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/brand_azul</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
-        <!-- Navigation bar color. -->
-        <item name="android:navigationBarColor">@color/black</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o">false</item>
+        <item name="colorPrimaryContainer">@color/primary_ink_dark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
 
-        <!-- Ensure system bars are shown -->
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/accent_thread</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Background and Surface. -->
+        <item name="android:windowBackground">@color/primary_ink_dark</item>
+        <item name="colorSurface">@color/primary_ink_dark</item>
+        <item name="colorSurfaceVariant">@color/primary_ink</item>
+        <item name="colorOnSurface">@color/background_paper</item>
+        <item name="colorOnSurfaceVariant">@color/background_paper_raised</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/primary_ink_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@color/primary_ink_dark</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o">false</item>
     </style>
 </resources>

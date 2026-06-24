@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Villa Acero</string>
+    <string name="price_format">$%1$d</string>
+    <string name="pay_with_webpay">Payer avec Webpay</string>
+    <string name="consult_doubts">Consulter pour des doutes</string>
+    <string name="send_via_whatsapp">Envoyer la commande via WhatsApp</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_my_orders">Mes Commandes</string>
+    <string name="nav_tracking">Suivi</string>
+    <string name="nav_whatsapp">WhatsApp</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_management">Gestion</string>
+    <string name="nav_caja">Caisse</string>
+    <string name="nav_instagram">Voir Instagram</string>
+    <string name="nav_cart">Panier</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_chat">Chat</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_empty">Vous n\'avez pas de nouvelles notifications.</string>
+    <string name="notifications_mark_all_read">Tout marquer comme lu</string>
+    <string name="notifications_chat_new_message">Nouveau message de %1$s</string>
+    <string name="notifications_chat_new_message_admin">Villa Acero vous a répondu</string>
+    <string name="notifications_order_update">Votre commande %1$s est maintenant: %2$s</string>
+    <string name="notifications_new_order_admin">Nouvelle commande reçue: %1$s</string>
+
+    <!-- Home -->
+    <string name="home_tag">UNIFORMES SCOLAIRES</string>
+    <string name="home_title_line1">Confections</string>
+    <string name="home_title_line2">Villa Acero</string>
+    <string name="home_subtitle">Uniformes sur mesure pour les écoles de Hualpén, Concepción, Talcahuano et Chiguayante.</string>
+    <string name="home_guest_button">Entrer en tant qu\'invité</string>
+    <string name="home_admin_button">Accès administrateur</string>
+    <string name="admin_access">Accès administrateur</string>
+
+    <!-- School Selector -->
+    <string name="school_selector_title_admin">Panneau administrateur</string>
+    <string name="school_selector_title_guest">Choisissez votre école</string>
+    <string name="school_selector_search_placeholder">Rechercher une école ou une commune&#8230;</string>
+    <string name="school_selector_no_results">Aucune école trouvée avec ce filtre.</string>
+
+    <!-- Store & Products -->
+    <string name="store_no_products">Aucun produit dans cette catégorie.</string>
+    <string name="product_detail_loading">Chargement&#8230;</string>
+    <string name="product_detail_add_to_cart">Ajouter au panier</string>
+    <string name="product_detail_whatsapp_query">Bonjour! Je voudrais poser des questions sur ce produit: %1$s, taille %2$s, prix %3$s.</string>
+
+    <!-- Cart -->
+    <string name="cart_title">Votre Panier</string>
+    <string name="cart_empty">Votre panier est vide.</string>
+    <string name="cart_subtotal">Sous-total</string>
+    <string name="cart_total">Total</string>
+    <string name="cart_checkout_webpay">Payer avec Webpay</string>
+    <string name="cart_change_note">Note: J\'ai 3 jours ouvrables pour tout changement d\'avis sur les ajustements.</string>
+
+    <!-- Tracking -->
+    <string name="tracking_title">Suivi</string>
+    <string name="tracking_placeholder">Code de retrait</string>
+    <string name="tracking_searching">Recherche&#8230;</string>
+    <string name="tracking_order_label">Commande #%1$s</string>
+    <string name="tracking_status_ready">Votre commande est PRÊTE! Vous pouvez passer à la boutique pour la retirer à la caisse.</string>
+
+    <!-- Chat -->
+    <string name="chat_input_placeholder">Écrire un message&#8230;</string>
+    <string name="chat_send">Envoyer</string>
+    <string name="chat_sender_store">Villa Acero</string>
+</resources>

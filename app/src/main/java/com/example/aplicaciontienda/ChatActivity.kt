@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -41,16 +42,26 @@ class ChatActivity : AppCompatActivity() {
 
         esAdmin = intent.getBooleanExtra("ES_ADMIN", false)
         currentUserId = if (esAdmin) "admin" else getUniqueUserId()
-        val targetId = intent.getStringExtra("TARGET_ID") ?: "admin"
+        val targetId = intent.getStringExtra("TARGET_ID")
         
-        // El chatId identifica la conversación. 
-        // Si el invitado abre el chat, su ID es el chatId.
-        // Si el admin abre un chat desde la lista, el ID del invitado es el chatId.
-        chatId = if (esAdmin) targetId else currentUserId
+        chatId = if (esAdmin) {
+            targetId ?: ""
+        } else {
+            currentUserId
+        }
+
+        if (chatId.isEmpty()) {
+            Toast.makeText(this, "Error: No se pudo identificar el chat", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarChat)
         toolbar.title = if (esAdmin) "Chat con $chatId" else "Chat con Villa Acero"
         toolbar.setNavigationOnClickListener { finish() }
+
+        val targetPresenceId = if (esAdmin) chatId else "admin"
+        listenForPresence(targetPresenceId, toolbar)
 
         etMensaje = findViewById(R.id.etMensaje)
         btnEnviar = findViewById(R.id.btnEnviar)
@@ -61,15 +72,14 @@ class ChatActivity : AppCompatActivity() {
         rvChat.layoutManager = LinearLayoutManager(this)
         rvChat.adapter = adapter
 
-        // Referencia a los mensajes del chat específico
         dbRef = FirebaseDatabase.getInstance().getReference("chats").child(chatId)
         
-        // Si es invitado y viene del carrito, enviar mensaje automático
         val cartInfo = intent.getStringExtra("CART_INFO")
         if (!esAdmin && cartInfo != null) {
             sendMessage(cartInfo)
         }
 
+        PresenceManager.updateLastSeen(currentUserId)
         listenForMessages()
 
         btnEnviar.setOnClickListener { 
@@ -103,7 +113,6 @@ class ChatActivity : AppCompatActivity() {
                     val message = postSnapshot.getValue(Message::class.java)
                     if (message != null) {
                         messages.add(message)
-                        // Si soy admin y el mensaje es de un invitado y no está leído, marcar como leído
                         if (esAdmin && message.senderId != "admin" && !message.read) {
                             postSnapshot.ref.child("read").setValue(true)
                         }
@@ -116,16 +125,28 @@ class ChatActivity : AppCompatActivity() {
         })
     }
 
+    private fun listenForPresence(targetId: String, toolbar: androidx.appcompat.widget.Toolbar) {
+        FirebaseDatabase.getInstance().getReference("presence").child(targetId)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val lastSeen = snapshot.getValue(Long::class.java) ?: 0L
+                    toolbar.subtitle = PresenceManager.getFormattedPresence(lastSeen)
+                }
+                override fun onCancelled(error: DatabaseError) {}
+            })
+    }
+
     private fun sendMessage(text: String) {
         val message = Message(senderId = currentUserId, text = text, timestamp = System.currentTimeMillis())
         dbRef.push().setValue(message)
+        PresenceManager.updateLastSeen(currentUserId)
     }
 
     private fun uploadImage(uri: Uri) {
-        val progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleLarge)
-        val layout = findViewById<RelativeLayout>(R.id.rootLayoutChat) ?: findViewById(android.R.id.content)
-        val params = RelativeLayout.LayoutParams(100, 100).apply {
-            addRule(RelativeLayout.CENTER_IN_PARENT)
+        val progressBar = ProgressBar(this)
+        val layout = findViewById<ViewGroup>(android.R.id.content)
+        val params = FrameLayout.LayoutParams(200, 200).apply {
+            gravity = android.view.Gravity.CENTER
         }
         layout.addView(progressBar, params)
 
@@ -133,9 +154,14 @@ class ChatActivity : AppCompatActivity() {
         storageRef.putFile(uri)
             .addOnSuccessListener {
                 storageRef.downloadUrl.addOnSuccessListener { downloadUri ->
-                    val message = Message(senderId = currentUserId, imageUrl = downloadUri.toString(), timestamp = System.currentTimeMillis())
+                    val message = Message(
+                        senderId = currentUserId, 
+                        imageUrl = downloadUri.toString(), 
+                        timestamp = System.currentTimeMillis()
+                    )
                     dbRef.push().setValue(message)
                     layout.removeView(progressBar)
+                    PresenceManager.updateLastSeen(currentUserId)
                 }
             }
             .addOnFailureListener {

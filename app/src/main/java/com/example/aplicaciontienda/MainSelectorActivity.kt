@@ -118,13 +118,16 @@ class MainSelectorActivity : AppCompatActivity() {
 
         // IMPORTANTE: Desactivar el tinte automático para que los iconos PNG se vean con sus colores originales
         bottomNav.itemIconTintList = null
-
-        // Si es admin, cambiamos el título del menú de seguimiento para que sea claro
-        if (esAdmin) {
-            val menu = bottomNav.menu
-            menu.findItem(R.id.nav_chat)?.title = "Mensajes"
-            menu.findItem(R.id.nav_my_orders)?.title = "Pedidos"
-            menu.findItem(R.id.nav_tracking)?.title = "Gestión"
+        
+        // Ajustar el FAB para que no se vea cortado o mal puesto
+        val fabChat = findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fabChat)
+        fabChat?.supportImageTintList = null // Evitar tinte sólido en el icono del FAB
+        fabChat?.setOnClickListener {
+            if (esAdmin) {
+                startActivity(Intent(this, AdminChatListActivity::class.java))
+            } else {
+                startActivity(Intent(this, ChatActivity::class.java))
+            }
         }
 
         bottomNav.setOnItemSelectedListener { item ->

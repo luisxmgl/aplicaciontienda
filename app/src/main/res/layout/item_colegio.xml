@@ -5,8 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="0dp"
-    app:strokeColor="#EEEEEE"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/background_paper"
+    app:strokeColor="@color/border_pale_tan"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -25,10 +26,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/circle_bg"
-                android:backgroundTint="#F0F0F0"
+                android:backgroundTint="@color/background_paper_raised"
                 android:gravity="center"
                 android:text="VA"
-                android:textColor="@color/brand_azul"
+                android:textColor="@color/primary_ink"
                 android:textStyle="bold"
                 android:textSize="22sp" />
             <ImageView
@@ -51,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nombre del Colegio"
-                android:textColor="#333333"
+                android:textColor="@color/neutral_charcoal"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:maxLines="2"
@@ -68,14 +69,14 @@
                     android:layout_width="14dp"
                     android:layout_height="14dp"
                     android:src="@android:drawable/ic_menu_mylocation"
-                    app:tint="#666666" />
+                    app:tint="@color/neutral_muted_brown" />
 
                 <TextView
                     android:id="@+id/tvComuna"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Comuna"
-                    android:textColor="#666666"
+                    android:textColor="@color/neutral_muted_brown"
                     android:textSize="14sp"
                     android:layout_marginStart="4dp" />
             </LinearLayout>
@@ -86,11 +87,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
-            android:textColor="@color/brand_azul"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             android:background="@drawable/circle_bg"
-            android:backgroundTint="#B0C4DE"
+            android:backgroundTint="@color/accent_thread"
             android:gravity="center"
             android:minWidth="32dp"
             android:minHeight="24dp"

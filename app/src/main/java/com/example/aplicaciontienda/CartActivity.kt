@@ -145,23 +145,11 @@ class CartActivity : AppCompatActivity() {
             showFaqDialog()
         }
 
-        findViewById<View>(R.id.btnThemeToggle).setOnClickListener {
-            toggleDarkMode()
-        }
-
         findViewById<View>(R.id.btnGoShopping)?.setOnClickListener {
             finish() // Volver a la tienda
         }
     }
 
-    private fun toggleDarkMode() {
-        val currentMode = resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK
-        if (currentMode == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-    }
 
     private fun showFaqDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_faq, null)

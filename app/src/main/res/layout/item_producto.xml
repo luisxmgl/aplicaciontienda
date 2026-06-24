@@ -6,64 +6,56 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
-    app:strokeWidth="0dp">
+    app:cardBackgroundColor="@color/background_paper"
+    app:strokeColor="@color/border_pale_tan"
+    app:strokeWidth="1dp">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="PRODUCTO"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="@color/neutral_charcoal"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="$0"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="@color/primary_ink"
+            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvNombre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="PRODUCTO"
-                    android:textColor="#222222"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvTalla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Talla"
+            android:textColor="@color/neutral_muted_brown"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
 
-                <TextView
-                    android:id="@+id/tvPrecio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="desde $0"
-                    android:textColor="@color/brand_azul"
-                    android:textSize="18sp"
-                    android:layout_marginTop="6dp"
-                    android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock: 0"
+            android:textColor="@color/accent_thread"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/tvTalla"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Talla"
-                    android:textColor="#777777"
-                    android:textSize="15sp"
-                    android:layout_marginTop="2dp" />
-
-                <TextView
-                    android:id="@+id/tvStock"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stock: 0"
-                    android:textColor="#FF9800"
-                    android:textSize="13sp"
-                    android:layout_marginTop="2dp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-    </FrameLayout>
+    </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

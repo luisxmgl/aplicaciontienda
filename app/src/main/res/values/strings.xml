@@ -1,9 +1,77 @@
 <resources>
-    <string name="app_name">aplicaciontienda</string>
+    <string name="app_name">Villa Acero</string>
     <string name="price_format">$%1$d</string>
     <string name="pay_with_webpay">Pagar con Webpay</string>
     <string name="consult_doubts">Consultar por dudas</string>
     <string name="send_via_whatsapp">Enviar pedido por WhatsApp</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_my_orders">Mis Pedidos</string>
+    <string name="nav_tracking">Seguimiento</string>
+    <string name="nav_whatsapp">WhatsApp</string>
+    <string name="nav_messages">Mensajes</string>
+    <string name="nav_management">Gestión</string>
+    <string name="nav_caja">Caja</string>
+    <string name="nav_instagram">Ver Instagram</string>
+    <string name="nav_cart">Carrito</string>
+    <string name="nav_notifications">Notificaciones</string>
+    <string name="nav_chat">Chat</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notificaciones</string>
+    <string name="notifications_empty">No tienes notificaciones nuevas.</string>
+    <string name="notifications_mark_all_read">Marcar todo como leído</string>
+    <string name="notifications_chat_new_message">Nuevo mensaje de %1$s</string>
+    <string name="notifications_chat_new_message_admin">Villa Acero te respondió</string>
+    <string name="notifications_order_update">Tu pedido %1$s ahora está: %2$s</string>
+    <string name="notifications_new_order_admin">Nuevo pedido recibido: %1$s</string>
+
+    <!-- Home -->
+    <string name="home_tag">UNIFORMES ESCOLARES</string>
+    <string name="home_title_line1">Confecciones</string>
+    <string name="home_title_line2">Villa Acero</string>
+    <string name="home_subtitle">Uniformes a medida para colegios de Hualpén, Concepción, Talcahuano y Chiguayante.</string>
+    <string name="home_guest_button">Entrar como invitado</string>
+    <string name="home_admin_button">Acceso administrador</string>
+    <string name="admin_access">Acceso Administrador</string>
+
+    <!-- School Selector -->
+    <string name="school_selector_title_admin">Panel administrador</string>
+    <string name="school_selector_title_guest">Selecciona tu colegio</string>
+    <string name="school_selector_search_placeholder">Buscar colegio o comuna&#8230;</string>
+    <string name="school_selector_no_results">No encontramos colegios con ese filtro.</string>
+
+    <!-- Store & Products -->
+    <string name="store_no_products">Sin productos en esta categoría.</string>
+    <string name="product_detail_loading">Cargando&#8230;</string>
+    <string name="product_detail_add_to_cart">Agregar al carrito</string>
+    <string name="product_detail_whatsapp_query">¡Hola! Quería consultar sobre este producto: %1$s, talla %2$s, precio %3$s.</string>
+
+    <!-- Cart -->
+    <string name="cart_title">Tu carrito</string>
+    <string name="cart_empty">Tu carrito está vacío.</string>
+    <string name="cart_subtotal">Subtotal</string>
+    <string name="cart_total">Total</string>
+    <string name="cart_checkout_webpay">Pagar con Webpay</string>
+    <string name="cart_change_note">Nota: tengo 3 días hábiles para cualquier cambio de opinión sobre los ajustes.</string>
+    <string name="clear_cart_title">Vaciar carrito</string>
+    <string name="clear_cart_message">¿Estás seguro de que quieres eliminar todos los productos del carrito?</string>
+    <string name="cart_cleared">Carrito vaciado</string>
+
+    <!-- Tracking -->
+    <string name="tracking_title">Seguimiento</string>
+    <string name="tracking_placeholder">Código de retiro</string>
+    <string name="tracking_searching">Buscando&#8230;</string>
+    <string name="tracking_order_label">Pedido #%1$s</string>
+    <string name="tracking_status_ready">¡Tu pedido está LISTO! Puedes pasar a la tienda a retirarlo con la cajera.</string>
+
+    <!-- Chat -->
+    <string name="chat_input_placeholder">Escribe un mensaje&#8230;</string>
+    <string name="chat_send">Enviar</string>
+    <string name="chat_sender_store">Villa Acero</string>
+
+    <!-- FAQ (Keeping existing) -->
     <string name="faq_title">Preguntas Frecuentes (FAQ)</string>
     <string name="faq_q1">¿Cuánto tiempo tengo para cambiar detalles de mi pedido?</string>
     <string name="faq_a1">Tienes hasta 3 días hábiles para modificar detalles de personalización (ajustes de medida, bordados, etc.) antes de que entre a producción final.</string>
@@ -41,19 +109,14 @@
     <string name="faq_a17">Estamos en Hualpén, calle Secundaria #123. Puedes encontrarnos fácilmente en Google Maps como &#8220;Tienda Villa Acero&#8221;.</string>
     <string name="faq_q18">¿Emiten factura para colegios o empresas?</string>
     <string name="faq_a18">Sí, emitimos boleta por defecto, pero si necesitas factura puedes solicitarla al momento del retiro entregando los datos de facturación.</string>
-    <string name="nav_home">Inicio</string>
-    <string name="nav_my_orders">Mis Pedidos</string>
-    <string name="nav_tracking">Seguimiento</string>
-    <string name="admin_access">Acceso Administrador</string>
+
+    <!-- Misc -->
     <string name="change_theme">Cambiar Tema</string>
     <string name="copy_code">COPIAR CÓDIGO</string>
     <string name="points_gain_info">Ganarás %1$d puntos con esta compra</string>
     <string name="understood">ENTENDIDO</string>
-    <string name="clear_cart_title">Vaciar carrito</string>
-    <string name="clear_cart_message">¿Estás seguro de que quieres eliminar todos los productos del carrito?</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
-    <string name="cart_cleared">Carrito vaciado</string>
     <string name="order_success">¡Pedido realizado con éxito! 🎉</string>
     <string name="order_code_is">Tu código de retiro es: %1$s</string>
     <string name="show_qr_to_cashier">Muéstrale este QR a la cajera al retirar:</string>

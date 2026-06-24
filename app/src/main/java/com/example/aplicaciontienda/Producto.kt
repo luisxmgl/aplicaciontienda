@@ -74,18 +74,7 @@ data class Producto(
         return (precio / 1000 * multiplier).toInt().coerceAtLeast(1)
     }
 
-    val descripcion: String get() {
-        val name = producto.uppercase()
-        return when {
-            name.contains("POLERON") -> "Polerón de alta calidad con interior de franela suave, ideal para mantener la temperatura corporal durante los días fríos. Cuenta con costuras reforzadas en hombros y cuello para una mayor durabilidad ante el uso diario. Tela de composición mixta que asegura que no encoja ni pierda su color original tras los lavados."
-            name.contains("POLERA") -> "Polera confeccionada en tela altamente respirable y cómoda, ideal para el movimiento constante. Cuello y puños con tejido reforzado que mantiene su forma lavado tras lavado. Costuras planas para evitar roces molestos y asegurar el confort durante toda la jornada escolar."
-            name.contains("BUZO") || name.contains("PANTALON") -> "Prenda fabricada en tela de alta resistencia al roce y al uso intenso. Cuenta con pretina elástica reforzada para un ajuste seguro y cómodo. El tejido permite una excelente libertad de movimiento, siendo ideal tanto para clases normales como para educación física."
-            name.contains("CASACA") -> "Casaca térmica con capa exterior repelente a la humedad y forro interior abrigado. Posee cierres de alta calidad y puños ajustables para proteger contra el viento y el frío. Diseño ergonómico pensado para la máxima comodidad del estudiante."
-            name.contains("FALDA") || name.contains("JUMPER") -> "Confeccionado en tela de sarga de alta resistencia con terminaciones prolijas. El material es resistente a las arrugas y mantiene el color firme por mucho más tiempo. Diseño clásico con calce cómodo para el uso diario prolongado."
-            name.contains("PARKA") -> "Parka impermeable de alto rendimiento con aislamiento térmico superior. Protege eficazmente contra la lluvia y el viento, manteniendo al estudiante seco y temperado. Incluye bolsillos funcionales y terminaciones reforzadas."
-            else -> "Uniforme de alta calidad, confeccionado con telas resistentes y duraderas. Diseñado específicamente para cumplir con las exigencias del uso escolar diario, ofreciendo un equilibrio perfecto entre comodidad, durabilidad y una excelente presentación personal."
-        }
-    }
+    val descripcion: String get() = Utils.generateDescription(nombre)
 }
 
 data class ColegioUI(

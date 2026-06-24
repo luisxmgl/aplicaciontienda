@@ -10,7 +10,8 @@ data class ChatSummary(
     val chatId: String,
     val lastMessage: String,
     val hasUnread: Boolean,
-    val timestamp: Long
+    val timestamp: Long,
+    val lastSeen: Long = 0L
 )
 
 class AdminChatAdapter(
@@ -36,6 +37,9 @@ class AdminChatAdapter(
         holder.tvLast.text = chat.lastMessage
         holder.unreadIndicator.visibility = if (chat.hasUnread) View.VISIBLE else View.GONE
         
+        val tvPresence = holder.itemView.findViewById<TextView>(R.id.tvPresence)
+        tvPresence.text = PresenceManager.getFormattedPresence(chat.lastSeen)
+
         holder.tvInitial.text = chat.chatId.replace("Invitado_", "").take(1).uppercase()
 
         holder.itemView.setOnClickListener {

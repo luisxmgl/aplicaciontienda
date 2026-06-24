@@ -1,11 +1,13 @@
 package com.example.aplicaciontienda
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
+import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,8 +20,6 @@ class MainActivity : AppCompatActivity() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            // No mostramos Toast aquí para no molestar al inicio, 
-            // ya que FirebaseApp puede fallar si no hay json pero la app puede seguir.
         }
 
         setContentView(R.layout.activity_main)
@@ -32,15 +32,34 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        findViewById<android.widget.TextView>(R.id.btnAdminLogin).setOnClickListener {
+        val guestId = getUniqueUserId()
+        PresenceManager.updateLastSeen(guestId)
+
+        setupBanner()
+
+        findViewById<android.widget.Button>(R.id.btnAdminLoginReal).setOnClickListener {
             val intent = Intent(this, AdminLoginActivity::class.java)
             startActivity(intent)
         }
 
-        findViewById<android.widget.TextView>(R.id.tvTitle).setOnLongClickListener {
+        findViewById<android.widget.TextView>(R.id.tvTitle2).setOnLongClickListener {
             val intent = Intent(this, AdminLoginActivity::class.java)
             startActivity(intent)
             true
         }
+    }
+
+    private fun setupBanner() {
+        // ... implementation ...
+    }
+
+    private fun getUniqueUserId(): String {
+        val prefs = getSharedPreferences("ChatPrefs", Context.MODE_PRIVATE)
+        var id = prefs.getString("user_id", null)
+        if (id == null) {
+            id = "Invitado_" + UUID.randomUUID().toString().substring(0, 8)
+            prefs.edit().putString("user_id", id).apply()
+        }
+        return id
     }
 }

@@ -1,13 +1,11 @@
 package com.example.aplicaciontienda
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.*
-
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
@@ -22,12 +20,21 @@ class AdminChatListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_chat_list)
 
+        PresenceManager.updateLastSeen("admin")
+
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbarAdmin)
         if (toolbar != null) {
             setSupportActionBar(toolbar)
             supportActionBar?.title = "Mensajes Recibidos"
             toolbar.setNavigationOnClickListener {
                 finish()
+            }
+            
+            // Botón opcional para cerrar sesión si se desea
+            toolbar.setOnLongClickListener {
+                getSharedPreferences("AdminPrefs", Context.MODE_PRIVATE).edit().clear().apply()
+                Toast.makeText(this, "Sesión cerrada. Reinicie para loguear de nuevo.", Toast.LENGTH_LONG).show()
+                true
             }
         }
 
@@ -65,8 +72,7 @@ class AdminChatListActivity : AppCompatActivity() {
                         
                         chatList.add(ChatSummary(chatId, lastMsgText, hasUnread, lastTimestamp))
                     }
-                    chatList.sortByDescending { it.timestamp }
-                    adapter.notifyDataSetChanged()
+                    fetchPresenceAndSort()
                 }
                 override fun onCancelled(error: DatabaseError) {
                     Toast.makeText(this@AdminChatListActivity, "Error Firebase: ${error.message}", Toast.LENGTH_SHORT).show()
@@ -76,5 +82,22 @@ class AdminChatListActivity : AppCompatActivity() {
             e.printStackTrace()
             Toast.makeText(this, "Firebase no configurado. Falta google-services.json", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun fetchPresenceAndSort() {
+        val presRef = FirebaseDatabase.getInstance().getReference("presence")
+        presRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val updatedList = chatList.map { summary ->
+                    val lastSeen = snapshot.child(summary.chatId).getValue(Long::class.java) ?: 0L
+                    summary.copy(lastSeen = lastSeen)
+                }
+                chatList.clear()
+                chatList.addAll(updatedList)
+                chatList.sortByDescending { it.timestamp }
+                adapter.notifyDataSetChanged()
+            }
+            override fun onCancelled(error: DatabaseError) {}
+        })
     }
 }

@@ -9,6 +9,8 @@ import java.text.NumberFormat
 import java.util.Locale
 
 object Utils {
+    private const val ORDER_ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ"
+
     fun getLogoForColegio(nombre: String): String {
         val normalized = nombre.uppercase().trim()
         return when {
@@ -68,14 +70,22 @@ object Utils {
 
     fun generateOrderCode(): String {
         val date = java.text.SimpleDateFormat("ddMM", Locale.getDefault()).format(java.util.Date())
-        val random = (1000..9999).random().toString()
-        // Mezclamos un poco la fecha con el random para los 4 dígitos
-        // Por ejemplo: primer dígito del día + primer dígito del mes + 2 random
-        val d1 = date[0]
-        val m1 = date[2]
-        val r1 = random[0]
-        val r2 = random[1]
-        return "$d1$m1$r1$r2"
+        val sb = StringBuilder()
+        for (i in 0 until 4) {
+            sb.append(ORDER_ALPHABET.random())
+        }
+        return "$date-${sb.toString()}"
+    }
+
+    fun generateDescription(productName: String): String {
+        val name = productName.uppercase()
+        return when {
+            name.contains("POLERON") -> "Polerón de alta calidad, interior de franela suave y costuras reforzadas para mayor durabilidad."
+            name.contains("POLERA") -> "Polera confeccionada en tela respirable, ideal para el uso diario con cuello reforzado."
+            name.contains("PANTALON") || name.contains("BUZO") -> "Prenda resistente a la fricción, con cintura elástica ajustable para máxima comodidad."
+            name.contains("CASACA") || name.contains("PARKA") -> "Aislamiento térmico superior y tela repelente al agua, perfecta para días fríos."
+            else -> "Uniforme de alta calidad confeccionado con materiales seleccionados para garantizar resistencia y comodidad durante todo el año escolar."
+        }
     }
 
     fun generateQRCode(text: String, size: Int): android.graphics.Bitmap? {

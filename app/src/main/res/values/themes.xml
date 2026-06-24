@@ -1,23 +1,42 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Aplicaciontienda" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Aplicaciontienda" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/brand_azul</item>
-        <item name="colorPrimaryVariant">@color/brand_azul</item>
+        <item name="colorPrimary">@color/primary_ink</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_ink_dark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/verde_whatsapp</item>
-        <item name="colorSecondaryVariant">@color/verde_whatsapp</item>
+        <item name="colorSecondary">@color/accent_thread</item>
         <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/accent_thread_dark</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+
+        <!-- Tertiary brand color (Success). -->
+        <item name="colorTertiary">@color/success_green</item>
+        <item name="colorOnTertiary">@color/white</item>
+
+        <!-- Background and Surface. -->
+        <item name="android:windowBackground">@color/background_paper</item>
+        <item name="colorSurface">@color/background_paper</item>
+        <item name="colorSurfaceVariant">@color/background_paper_raised</item>
+        <item name="colorOnSurface">@color/neutral_charcoal</item>
+        <item name="colorOnSurfaceVariant">@color/neutral_muted_brown</item>
+
+        <!-- Outline / Borders. -->
+        <item name="colorOutline">@color/border_pale_tan</item>
+
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/brand_azul</item>
+        <item name="android:statusBarColor">@color/primary_ink</item>
         <item name="android:windowLightStatusBar">false</item>
+
         <!-- Navigation bar color. -->
-        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/background_paper</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
 
-        <!-- Ensure system bars are shown -->
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <!-- Components styling -->
+        <item name="materialButtonStyle">@style/Widget.Material3.Button.TonalButton</item>
+        <item name="chipStyle">@style/Widget.Material3.Chip.Filter</item>
     </style>
 </resources>

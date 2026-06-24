@@ -45,19 +45,37 @@ class TiendaActivity : AppCompatActivity() {
             startActivity(Intent(this, CartActivity::class.java))
         }
 
-        findViewById<ImageButton>(R.id.btnChat).setOnClickListener {
-            startActivity(Intent(this, ChatActivity::class.java))
-        }
-
         findViewById<ImageButton>(R.id.btnWhatsApp).setOnClickListener {
             Utils.openWhatsApp(this, "+56920680021", "Hola! Quería consultar sobre los uniformes de $colegioNombre.")
         }
 
-        findViewById<ImageButton>(R.id.btnInfo).setOnClickListener {
-            startActivity(Intent(this, SobreNosotrosActivity::class.java))
-        }
-
+        configurarBusqueda()
         cargarProductos(codFamilia)
+    }
+
+    private fun configurarBusqueda() {
+        val etSearch = findViewById<android.widget.EditText>(R.id.etSearchProduct)
+        etSearch.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filtrarPorTexto(s.toString())
+            }
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
+    }
+
+    private fun filtrarPorTexto(query: String) {
+        val lowerCaseQuery = query.lowercase()
+        productosFiltrados.clear()
+        if (lowerCaseQuery.isEmpty()) {
+            productosFiltrados.addAll(todosLosProductos)
+        } else {
+            productosFiltrados.addAll(todosLosProductos.filter { 
+                it.nombre.lowercase().contains(lowerCaseQuery) || 
+                it.colegio.lowercase().contains(lowerCaseQuery)
+            })
+        }
+        adapter.notifyDataSetChanged()
     }
 
     private fun cargarProductos(codFamilia: String?) {

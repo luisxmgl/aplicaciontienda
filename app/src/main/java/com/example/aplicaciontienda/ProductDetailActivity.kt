@@ -1,5 +1,6 @@
 package com.example.aplicaciontienda
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -28,9 +29,9 @@ class ProductDetailActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tvDetailName).text = producto.nombre
         findViewById<TextView>(R.id.tvDetailPrice).text = Utils.formatPrice(producto.precio)
-        findViewById<TextView>(R.id.tvDescription).text = producto.descripcion
+        findViewById<TextView>(R.id.tvDescription).text = Utils.generateDescription(producto.nombre)
         findViewById<TextView>(R.id.tvDetailStock).visibility = View.GONE
-        
+
         // Quitar placeholder de imagen
         findViewById<View>(R.id.ivProductLarge).visibility = View.GONE
         (findViewById<View>(R.id.ivProductLarge).parent as? View)?.visibility = View.GONE
@@ -72,12 +73,25 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         findViewById<MaterialButton>(R.id.btnWhatsAppDetail).setOnClickListener {
-            val message = "Hola! Me interesa el producto: ${producto.nombre} del colegio: ${producto.colegio}"
+            val message = getString(
+                R.string.product_detail_whatsapp_query,
+                producto.nombre,
+                producto.talla,
+                Utils.formatPrice(producto.precio)
+            )
             Utils.openWhatsApp(this, "56920680021", message)
         }
 
         findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar).setNavigationOnClickListener {
             finish()
+        }
+
+        findViewById<View>(R.id.btnShare).setOnClickListener {
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, "¡Mira este producto en Villa Acero: ${producto.nombre}! ${Utils.formatPrice(producto.precio)}")
+            }
+            startActivity(Intent.createChooser(shareIntent, "Compartir producto"))
         }
 
         setupRelatedProducts(producto)

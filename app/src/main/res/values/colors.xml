@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- Web Villa Acero Palette (Paper & Ink) -->
+    <color name="primary_ink">#2E4A5C</color>
+    <color name="primary_ink_dark">#1B2E3A</color>
+    <color name="background_paper">#FBF8F4</color>
+    <color name="background_paper_raised">#F1E6D6</color>
+    <color name="accent_thread">#C97A4A</color>
+    <color name="accent_thread_dark">#A35F37</color>
+    <color name="neutral_charcoal">#2B2A28</color>
+    <color name="neutral_muted_brown">#8A8276</color>
+    <color name="border_pale_tan">#E2D5BF</color>
+    <color name="success_green">#3F9151</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <!-- Brand colors -->
-    <color name="brand_azul">#1A456F</color>
-    <color name="brand_azul_claro">#A5C5DD</color>
     <color name="verde_whatsapp">#25D366</color>
 
+    <!-- Legacy / Semantic Aliases -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">@color/primary_ink</color>
+    <color name="purple_700">@color/primary_ink_dark</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">@color/success_green</color>
+
+    <color name="brand_azul">@color/primary_ink</color>
+    <color name="brand_azul_claro">#A5C5DD</color>
+
     <!-- Surface colors -->
-    <color name="surface_light">#FAFAFA</color>
-    <color name="surface_variant">#EEEEEE</color>
-    <color name="outline_light">#DDDDDD</color>
+    <color name="surface_light">@color/background_paper</color>
+    <color name="surface_variant">@color/background_paper_raised</color>
+    <color name="outline_light">@color/border_pale_tan</color>
 
     <!-- Chatbot colors -->
-    <color name="bot_bubble_bg">#F1F1F1</color>
-    <color name="user_bubble_bg">#1A456F</color>
-    <color name="chat_bg">#FFFFFF</color>
+    <color name="bot_bubble_bg">@color/background_paper_raised</color>
+    <color name="user_bubble_bg">@color/primary_ink</color>
+    <color name="chat_bg">@color/background_paper</color>
 </resources>

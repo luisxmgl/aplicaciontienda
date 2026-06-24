@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA"
+    android:background="@color/background_paper"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="@color/background_paper"
         app:elevation="0dp">
 
         <LinearLayout
@@ -23,59 +23,29 @@
                 android:id="@+id/btnBackStart"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:contentDescription="Volver al inicio"
+                android:contentDescription="Volver"
                 android:scaleType="centerInside"
                 android:src="@android:drawable/ic_menu_revert"
-                app:tint="@color/brand_azul"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:layout_marginEnd="8dp" />
+                app:tint="@color/primary_ink"
+                android:background="?attr/selectableItemBackgroundBorderless" />
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:contentDescription="Logo Villa Acero"
-                android:scaleType="centerInside"
-                android:src="@drawable/logoinicio" />
-
-            <LinearLayout
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Confecciones Villa Acero"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hualpén"
-                    android:textColor="#666666"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/btnLocation"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_mylocation"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/brand_azul"
-                android:visibility="gone" />
+                android:layout_marginStart="16dp"
+                android:text="@string/school_selector_title_guest"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textColor="@color/primary_ink"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btnInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/infoicono"
-                app:tint="@null" />
+                app:tint="@color/primary_ink" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -90,97 +60,38 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="¡Hola!"
-                android:textColor="@color/brand_azul"
-                android:textSize="42sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Selecciona tu colegio para ver el catálogo."
-                android:textColor="#444444"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/tvCountHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12 colegios disponibles en la zona"
-                android:textColor="#CCCCCC"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp" />
-
-            <!-- Filtros por Comuna -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:scrollbars="none">
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/cgComunas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:singleSelection="true">
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipTodosComuna"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Todas"
-                        android:checked="true" />
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipConcepcion"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Concepción" />
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipHualpen"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hualpén" />
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipTalcahuano"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Talcahuano" />
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipChiguayante"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chiguayante" />
-                </com.google.android.material.chip.ChipGroup>
-            </HorizontalScrollView>
-
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 app:startIconDrawable="@android:drawable/ic_menu_search"
-                app:boxCornerRadiusTopStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxStrokeColor="#EEEEEE"
-                app:hintEnabled="false">
+                app:hintEnabled="true"
+                android:hint="@string/school_selector_search_placeholder">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etSearch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Buscar colegio..."
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp" />
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgComunas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:singleSelection="true">
+                <!-- Chips added dynamically in activity -->
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/tvCountHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="12 colegios disponibles"
+                android:textColor="@color/neutral_muted_brown"
+                android:textSize="14sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvColegios"
@@ -197,10 +108,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
         android:src="@drawable/chaticonoa"
-        app:backgroundTint="#E6E6FA"
+        app:backgroundTint="@color/white"
         app:tint="@null"
         app:elevation="6dp" />
 
@@ -209,9 +120,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="#FFFFFF"
+        android:background="@color/background_paper"
         app:menu="@menu/bottom_nav_menu"
-        app:itemTextColor="@color/brand_azul"
+        app:itemIconTint="@null"
+        app:itemTextColor="@color/primary_ink"
         app:elevation="8dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

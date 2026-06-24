@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/background_paper"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -19,9 +19,9 @@
             android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="?attr/homeAsUpIndicator" />
+            android:src="?attr/homeAsUpIndicator"
+            app:tint="@color/primary_ink" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -34,9 +34,9 @@
                 android:id="@+id/tvColegioNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bautista"
-                android:textColor="#000000"
-                android:textSize="18sp"
+                android:text="Tienda"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textColor="@color/primary_ink"
                 android:textStyle="bold" />
 
             <TextView
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Concepción"
-                android:textColor="#666666"
+                android:textColor="@color/neutral_muted_brown"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -55,7 +55,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
             android:src="@drawable/shoppingcart"
-            app:tint="@null" />
+            app:tint="@color/primary_ink" />
 
         <ImageButton
             android:id="@+id/btnWhatsApp"
@@ -65,26 +65,25 @@
             android:padding="10dp"
             android:src="@drawable/whatsappicono"
             app:tint="@null" />
-
-        <ImageButton
-            android:id="@+id/btnChat"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
-            android:src="@drawable/chaticonoa"
-            app:tint="@null" />
-
-        <ImageButton
-            android:id="@+id/btnInfo"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
-            android:src="@drawable/infoicono"
-            app:tint="@null"
-            android:visibility="gone" />
     </LinearLayout>
+
+    <!-- Buscador de productos -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        app:startIconDrawable="@android:drawable/ic_menu_search"
+        app:hintEnabled="true"
+        android:hint="@string/school_selector_search_placeholder">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSearchProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Filtros por Categoría (Chips) -->
     <HorizontalScrollView
@@ -92,6 +91,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:scrollbars="none">
 
         <com.google.android.material.chip.ChipGroup
@@ -102,7 +102,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipTodos"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -110,30 +110,11 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipOrderPrice"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Menor Precio"
-                app:chipIcon="@android:drawable/ic_menu_sort_by_size"
-                app:chipIconVisible="true" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BUZO" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CALZA CORTA" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CASACA" />
+                app:chipIcon="@android:drawable/ic_menu_sort_by_size" />
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
