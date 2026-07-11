@@ -90,20 +90,24 @@ fun AdminDashboardScreen(onBack: () -> Unit, onVerPedidos: () -> Unit) {
     }
     val sevenDaysAgo = remember { System.currentTimeMillis() - 7L * 24 * 60 * 60 * 1000 }
 
-    val ventasHoy = data.pedidos.filter { it.fecha >= startOfToday }.sumOf { it.total + it.extraCharge }
-    val pedidosHoy = data.pedidos.count { it.fecha >= startOfToday }
-    val porPreparar = data.pedidos.count { it.estado <= 2 }
-    val ventasSemana = data.pedidos.filter { it.fecha >= sevenDaysAgo }.sumOf { it.total + it.extraCharge }
+    // Los pedidos con Webpay se guardan como pagado=false apenas se abre el flujo de pago;
+    // si el cliente se arrepiente o no completa el pago, ese registro nunca se confirma y no
+    // debe contar como venta real.
+    val pedidosPagados = remember(data.pedidos) { data.pedidos.filter { it.metodoPago != "webpay" || it.pagado == true } }
+    val ventasHoy = pedidosPagados.filter { it.fecha >= startOfToday }.sumOf { it.total + it.extraCharge }
+    val pedidosHoy = pedidosPagados.count { it.fecha >= startOfToday }
+    val porPreparar = pedidosPagados.count { it.estado <= 2 }
+    val ventasSemana = pedidosPagados.filter { it.fecha >= sevenDaysAgo }.sumOf { it.total + it.extraCharge }
 
-    val topProductos = remember(data.pedidos) {
-        data.pedidos.filter { it.fecha >= sevenDaysAgo }
+    val topProductos = remember(pedidosPagados) {
+        pedidosPagados.filter { it.fecha >= sevenDaysAgo }
             .flatMap { it.items }
             .groupBy { it.nombre }
             .mapValues { it.value.sumOf { i -> i.cantidad } }
             .toList().sortedByDescending { it.second }.take(3)
     }
-    val topColegios = remember(data.pedidos) {
-        data.pedidos.filter { it.fecha >= sevenDaysAgo }
+    val topColegios = remember(pedidosPagados) {
+        pedidosPagados.filter { it.fecha >= sevenDaysAgo }
             .flatMap { it.items }
             .filter { it.colegio.isNotEmpty() }
             .groupBy { it.colegio }

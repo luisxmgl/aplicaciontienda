@@ -35,7 +35,11 @@ fun AdminOrdersScreen(onBack: () -> Unit, onOpenCaja: () -> Unit) {
         val ref = FirebaseDatabase.getInstance().getReference("pedidos")
         val listener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val list = snapshot.children.mapNotNull { it.getValue(Pedido::class.java) }.sortedByDescending { it.fecha }
+                // Un pedido con Webpay que nunca se pagó (el cliente se arrepintió o no completó
+                // el flujo) no es un pedido real: no debe aparecer para que el staff lo prepare.
+                val list = snapshot.children.mapNotNull { it.getValue(Pedido::class.java) }
+                    .filter { it.metodoPago != "webpay" || it.pagado == true }
+                    .sortedByDescending { it.fecha }
                 orders.clear()
                 orders.addAll(list)
             }
