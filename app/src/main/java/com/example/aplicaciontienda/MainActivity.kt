@@ -1,19 +1,18 @@
 package com.example.aplicaciontienda
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import com.example.aplicaciontienda.ui.nav.AppNavHost
+import com.example.aplicaciontienda.ui.theme.VillaAceroTheme
 import com.google.firebase.FirebaseApp
-import java.util.UUID
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         try {
             if (FirebaseApp.getApps(this).isEmpty()) {
                 FirebaseApp.initializeApp(this)
@@ -22,44 +21,21 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
-        setContentView(R.layout.activity_main)
+        FavoritesManager.init(this)
+        PresenceManager.updateLastSeen(Utils.getUniqueUserId(this))
 
-        val btnInvitado = findViewById<Button>(R.id.btnInvitado)
+        val startRoute = intent.getStringExtra(EXTRA_START_ROUTE)
 
-        btnInvitado.setOnClickListener {
-            val intent = Intent(this, MainSelectorActivity::class.java)
-            intent.putExtra("ES_ADMIN", false)
-            startActivity(intent)
-        }
-
-        val guestId = getUniqueUserId()
-        PresenceManager.updateLastSeen(guestId)
-
-        setupBanner()
-
-        findViewById<android.widget.Button>(R.id.btnAdminLoginReal).setOnClickListener {
-            val intent = Intent(this, AdminLoginActivity::class.java)
-            startActivity(intent)
-        }
-
-        findViewById<android.widget.TextView>(R.id.tvTitle2).setOnLongClickListener {
-            val intent = Intent(this, AdminLoginActivity::class.java)
-            startActivity(intent)
-            true
+        enableEdgeToEdge()
+        setContent {
+            VillaAceroTheme {
+                AppNavHost(startRoute = startRoute)
+            }
         }
     }
 
-    private fun setupBanner() {
-        // ... implementation ...
-    }
-
-    private fun getUniqueUserId(): String {
-        val prefs = getSharedPreferences("ChatPrefs", Context.MODE_PRIVATE)
-        var id = prefs.getString("user_id", null)
-        if (id == null) {
-            id = "Invitado_" + UUID.randomUUID().toString().substring(0, 8)
-            prefs.edit().putString("user_id", id).apply()
-        }
-        return id
+    companion object {
+        /** Ruta Compose inicial opcional, usada al volver desde Activities XML aún no portadas (Admin/SobreNosotros). */
+        const val EXTRA_START_ROUTE = "START_ROUTE"
     }
 }

@@ -20,6 +20,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Servidor Express (server.js/webpay.js) que expone /api/webpay y /api/contacto.
+        // En debug apunta al emulador->host local; en release debe apuntar al servidor desplegado.
+        buildConfigField("String", "WEBPAY_BASE_URL", "\"http://10.0.2.2:3001\"")
     }
 
     buildTypes {
@@ -29,6 +33,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "WEBPAY_BASE_URL", "\"https://TODO-servidor-desplegado\"")
+        }
+        debug {
+            buildConfigField("String", "WEBPAY_BASE_URL", "\"http://10.0.2.2:3001\"")
         }
     }
     compileOptions {
@@ -37,9 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
+        buildConfig = true
     }
 }
 
@@ -49,16 +55,13 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation("com.google.firebase:firebase-analytics")
     implementation(libs.firebase.database)
-    implementation(libs.firebase.storage)
-    implementation(libs.firebase.auth)
-    implementation(libs.glide)
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
     implementation(libs.gson)
     implementation(libs.zxing)
-    implementation(libs.lottie)
+    implementation(libs.kotlinx.coroutines.android)
 
     // Compose
     implementation(platform(libs.androidx.compose.bom))
@@ -66,8 +69,15 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.okhttp)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)

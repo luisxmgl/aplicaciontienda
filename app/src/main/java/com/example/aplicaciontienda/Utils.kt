@@ -11,6 +11,17 @@ import java.util.Locale
 object Utils {
     private const val ORDER_ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ"
 
+    /** Id estable de invitado por dispositivo (equivalente a getGuestId() de utils.js en la web). */
+    fun getUniqueUserId(context: Context): String {
+        val prefs = context.getSharedPreferences("ChatPrefs", Context.MODE_PRIVATE)
+        var id = prefs.getString("user_id", null)
+        if (id == null) {
+            id = "Invitado_" + java.util.UUID.randomUUID().toString().substring(0, 8)
+            prefs.edit().putString("user_id", id).apply()
+        }
+        return id
+    }
+
     fun getLogoForColegio(nombre: String): String {
         val normalized = nombre.uppercase().trim()
         return when {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Permite HTTP sin cifrar solo hacia el host del emulador, para que el WebView/OkHttp de
+         Webpay puedan alcanzar el servidor Express local en desarrollo (BuildConfig.WEBPAY_BASE_URL
+         en debug = http://10.0.2.2:3001). En producción, WEBPAY_BASE_URL debe apuntar a un servidor
+         con HTTPS y no necesita esta excepción. -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>
