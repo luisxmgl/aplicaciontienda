@@ -1,5 +1,6 @@
 package com.example.aplicaciontienda.ui.nav
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -212,6 +213,7 @@ fun AppNavHost(startRoute: String? = null) {
                     }
                 },
                 onError = { message ->
+                    Log.e("WebpayFlow", "Fallo al iniciar pago para pedido $orderCode: $message")
                     navController.navigate(Routes.pagoResultado(orderCode, "error")) {
                         popUpTo(Routes.CART) { inclusive = false }
                     }

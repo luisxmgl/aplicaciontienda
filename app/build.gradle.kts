@@ -22,8 +22,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Servidor Express (server.js/webpay.js) que expone /api/webpay y /api/contacto.
-        // En debug apunta al emulador->host local; en release debe apuntar al servidor desplegado.
-        buildConfigField("String", "WEBPAY_BASE_URL", "\"http://10.0.2.2:3001\"")
+        // Sobrescrito en debug/release más abajo; ambos apuntan al servidor desplegado en Render.
+        buildConfigField("String", "WEBPAY_BASE_URL", "\"https://webvillaacero.onrender.com\"")
     }
 
     buildTypes {
@@ -33,10 +33,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "WEBPAY_BASE_URL", "\"https://TODO-servidor-desplegado\"")
+            buildConfigField("String", "WEBPAY_BASE_URL", "\"https://webvillaacero.onrender.com\"")
         }
         debug {
-            buildConfigField("String", "WEBPAY_BASE_URL", "\"http://10.0.2.2:3001\"")
+            buildConfigField("String", "WEBPAY_BASE_URL", "\"https://webvillaacero.onrender.com\"")
         }
     }
     compileOptions {

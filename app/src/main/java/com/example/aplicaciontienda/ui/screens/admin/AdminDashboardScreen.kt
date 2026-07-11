@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -136,9 +137,20 @@ fun AdminDashboardScreen(onBack: () -> Unit, onVerPedidos: () -> Unit) {
             if (porPreparar > 0) {
                 item {
                     Card(colors = CardDefaults.cardColors(containerColor = AccentThread.copy(alpha = 0.15f))) {
-                        Row(Modifier.padding(14.dp).fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                            Text("Hay pedidos esperando preparación")
-                            TextButton(onClick = onVerPedidos) { Text("Ver pedidos") }
+                        Row(
+                            Modifier.padding(14.dp).fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                "Hay pedidos esperando preparación",
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.weight(1f).padding(end = 8.dp)
+                            )
+                            TextButton(
+                                onClick = onVerPedidos,
+                                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+                            ) { Text("Ver pedidos") }
                         }
                     }
                 }
